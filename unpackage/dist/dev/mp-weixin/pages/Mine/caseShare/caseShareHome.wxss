@@ -1,0 +1,111 @@
+
+.halfCell{
+	width: 50%;
+}
+.cellHolder{
+	
+	/* margin-left: 30rpx;
+	margin-right: 30rpx; */
+	background-color: #FFFFFF;
+	border-radius: 10rpx;
+	/* display: flex; */
+	margin: 20rpx;
+	width: calc(100% - 40rpx);
+	/* flex-direction: row; */
+	/* background-color: #007AFF; */
+	/* width: 100%; */
+	height: 400rpx;
+}
+.price{
+	padding-left: 20rpx;
+	color: rgb(51,51,51);
+	font-size: 24rpx;
+	line-height: 40rpx;
+	height: 80rpx;
+	overflow: hidden;
+	width: calc(100% - 120rpx);
+	/* white-space: nowrap; */
+	/* text-overflow: ellipsis; */
+}
+.img{
+	width: 100%;
+	height: 280rpx;
+	background-color: #09BB07;
+	border-radius: 10rpx 10rpx 0rpx 0rpx;
+}
+.reviewing{
+	padding-left: 20rpx;
+	color: rgb(224,18,18);
+	font-size: 24rpx;
+	line-height: 40rpx;
+	height: 40rpx;
+}
+.weizan{
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+}
+.yizan{
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+	color: rgb(224,18,18);
+}
+.bottom_tool {
+	width: 100%;
+	height: 100rpx;
+	background-color: #f6f6f6;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	position: fixed;
+	border-top: 1rpx solid #616262;
+	bottom: calc(0px);
+}
+.tab_icon{
+	width: 40rpx;
+	height: 40rpx;
+	background-color: #09BB07;
+	margin-left: calc(50% - 20rpx);
+	margin-top: 17rpx;
+}
+.tab_title{
+	color: rgb(146,146,146);
+	font-size: 24rpx;
+	text-align: center;
+	height: 30rpx;
+	line-height: 30rpx;
+	margin-top: -5rpx;
+}
+.tab_title_sel{
+	color: rgb(0,139,60);
+	font-size: 24rpx;
+	text-align: center;
+	height: 30rpx;
+	line-height: 30rpx;
+	margin-top: -5rpx;
+}
+.tabNav-item {
+	color: rgb(53,53,53);
+	width: 50%;
+	text-align: center;
+	line-height: 80rpx;
+	/* flex-direction: row; */
+}
+.tabNav-item-active {
+	color: rgb(53,53,53);
+	line-height: 80rpx;
+}
+.bigBtn {
+	width: 40%;
+	height: 74rpx;
+	line-height: 74rpx;
+	font-size: 28rpx;
+	text-align: center;
+	border-radius: 37rpx;
+	margin-top: 13rpx;
+	color: #FFFFFF;background-color: #1AAD19;
+}
+

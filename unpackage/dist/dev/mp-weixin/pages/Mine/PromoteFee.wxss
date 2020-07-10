@@ -1,0 +1,53 @@
+
+page{background-color: rgb(240,240,240);}
+.whiteTop{
+		background-color: #FFFFFF;
+		height: 216rpx;
+		width: 100%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		        flex-direction: row;
+}
+.whiteHalf{
+		background-color: #FFFFFF;
+		height: 216rpx;
+		width: 500%;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		        flex-direction: column;
+}
+.wenzi{
+		font-size: 28rpx;
+		color: rgb(102,102,102);
+		text-align: center;
+		height: 80rpx;
+		line-height: 80rpx;
+		margin-top: 28rpx;
+}
+.money{
+		font-size: 48rpx;
+		color: rgb(51,51,51);
+		text-align: center;
+		height: 80rpx;
+		line-height: 80rpx;
+		font-weight: bold;
+}
+.logOutBtn{
+		margin-top: 40rpx;
+		height: 100rpx;
+		line-height: 100rpx;
+		margin-left: 13%;
+		width: 74%;
+		font-size:28rpx ;
+		color: rgb(255,255,255);
+		background-color: rgb(0,139,60)
+}
+

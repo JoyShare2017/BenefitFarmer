@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "购物车",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "wm-number-box": "/common/wm-number-box"
+  }
+}

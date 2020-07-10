@@ -1,0 +1,29 @@
+
+.cellHolder {
+	margin-top: 10rpx;
+	width: calc(100% - 40rpx);
+	background-color: #ffffff;
+	border-radius: 10rpx;
+	margin-bottom: 10rpx;
+}
+.address {
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 32rpx;
+	padding-left: 30rpx;
+}
+.sendEmail {
+	height: 52rpx;
+	line-height: 52rpx;
+	border-radius: 4rpx;
+	color: rgb(51, 51, 51);
+	width: 190rpx;
+	font-size: 24rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	margin-top: 24rpx;
+}
+.sendEmail::after {
+	border-color: rgb(51, 51, 51);
+}
+

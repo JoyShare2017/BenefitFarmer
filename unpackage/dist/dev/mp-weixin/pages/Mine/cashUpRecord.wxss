@@ -1,0 +1,56 @@
+
+.cell_holder{
+	
+	width: 100%;
+	height: 160rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	background-color: #FFFFFF;
+}
+.cell_title{
+	margin-top: 30rpx;
+	
+	padding-left: 20rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	overflow: hidden;
+	font-size: 32rpx;
+	color: rgb(51,51,51);
+}
+.cell_time{
+	padding-left: 20rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	overflow: hidden;
+	font-size: 24rpx;
+	color: rgb(51,51,51);
+}
+.cell_content{
+	
+	margin-top: 30rpx;
+	padding-right: 20rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	overflow: hidden;
+	font-size: 42rpx;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: calc(100% - 520rpx);
+	text-align: right;
+}
+.cell_icon{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 80rpx;
+	background-color: #09BB07;
+}
+
+
+
+
+

@@ -1,0 +1,49 @@
+
+.cellHolder{
+	background-color: #FFFFFF;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	width: 100%;
+}
+.namePhone{
+	padding-left: 30rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 32rpx;
+	color: rgb(40,40,40);
+}
+.place{
+	padding-left: 30rpx;
+	/* height: 50rpx; */
+	line-height: 50rpx;
+	font-size: 28rpx;
+	color: rgb(153,153,153);
+}
+.editbtn{
+	height: 46rpx;
+	line-height: 46rpx;
+	font-size: 28rpx;
+	width: 120rpx;
+	color: rgb(0,139,60);
+	background-color: transparent;
+}
+.editbtn::after{
+	border-color: rgb(0,139,60);
+}
+.delbtn{
+	height: 46rpx;
+	line-height: 46rpx;
+	font-size: 28rpx;
+	width: 120rpx;
+	color: rgb(51,51,51);
+	background-color: transparent;
+}
+.delbtn::after{
+	border-color: rgb(51,51,51);
+}
+

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "待复购会员",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {}
+}

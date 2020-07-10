@@ -1,0 +1,81 @@
+
+.topView {
+	width: 100%;
+	height: 80rpx;
+	padding-left: 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+}
+.top_black {
+	height: 80rpx;
+	line-height: 80rpx;
+	color: rgb(153,153,153);
+	font-size: 28rpx;
+}
+.top_pink {
+	height: 80rpx;
+	line-height: 80rpx;
+	color: rgb(0,139,60);
+	font-size: 26rpx;
+}
+.cell_holder {
+	
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	background-color: #ffffff;
+	/* padding-left: 30rpx; */
+	/* border-radius: 10rpx; */
+}
+.cell_title {
+	/* margin-top: 30rpx; */
+	padding-left: 20rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	overflow: hidden;
+	font-size: 28rpx;
+	color: rgb(51, 51, 51);
+	width: 50%;
+}
+.cell_time {
+	padding-left: 20rpx;
+	height: 50rpx;
+	line-height: 50rpx;
+	color: rgb(153, 153, 153);
+	font-size: 24rpx;
+	width: 50%;
+}
+.cell_icon {
+	width: 120rpx;
+	height: 120rpx;
+	/* padding-left: 30rpx; */
+	border-radius: 80rpx;
+	background-color: #09bb07;
+}
+.loading-more {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	text-align: center;
+	background-color: transparent;
+}
+.loading-more-text {
+	font-size: 28rpx;
+	color: #999;
+}
+

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "提成订单",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {}
+}

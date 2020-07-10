@@ -1,0 +1,118 @@
+
+.greenTop{
+	background-color: #1AAD19;
+	height: 300rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	padding-top: 30rpx;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}
+.headImg{
+	width: 114rpx;
+	height: 114rpx;
+	border-radius: 57rpx;
+	background-color: #007AFF;
+}
+.userInfo{
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 34rpx;
+	text-align: center;
+	color: #FFFFFF;
+}
+.threeBtnView{
+	margin-left: 30rpx;
+	width: calc(100% - 60rpx);
+	height: 184rpx;
+	border-radius: 20rpx;
+	background-color: #FFFFFF;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	margin-top: -100rpx;
+	z-index: 100;
+}
+.threeBtn_item{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	width: 50%;
+	text-align: center;
+	padding-top: 50rpx;
+}
+.threeBtn_item_func{
+
+	height: 40rpx;
+	line-height: 40rpx;
+	font-size: 28rpx;
+	color: rgb(102,102,102);
+}
+.adView{
+	margin-top: 10rpx;
+	padding: 10rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	/* width: 100%; */
+
+	margin-bottom: 10rpx;
+}
+.ad_img{
+	margin-top: 30rpx;
+	/* margin-left: 0rpx; */
+	width: calc(100% - 60rpx) ;
+	height: 150rpx;
+	background-color: #09BB07;
+}
+.ad_item{
+	margin-left: 10rpx;
+	margin-right: 10rpx;
+	width: calc((100% - 60rpx)/3);
+	height: 340rpx;
+	text-align: center;
+	background-color: #FFFFFF;
+	margin-top: 10rpx;
+	margin-bottom: 10rpx;
+	/* align-items: center; */
+}
+.left{
+	height: 50rpx;
+	line-height: 50rpx;
+	color: rgb(255,78,0);width: 50%;text-align: right;font-size: 32rpx;
+}
+.right{
+	height: 50rpx;
+	line-height: 50rpx;
+	color: rgb(51,51,51);width: 50%;font-size: 24rpx;
+	text-align: left;
+}
+.goBuyBtn{
+	width: 130rpx;
+	margin-left: calc(50% - 65rpx);
+	height: 56rpx;
+	line-height: 56rpx;
+	text-align: center;
+	background-color: rgb(0,119,51);
+	color: #FFFFFF;
+	border-radius: 28rpx;
+}
+
+

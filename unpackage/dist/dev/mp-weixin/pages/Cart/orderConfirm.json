@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单确认",
+  "usingComponents": {
+    "wm-number-box": "/common/wm-number-box"
+  }
+}

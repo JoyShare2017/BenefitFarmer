@@ -1,0 +1,35 @@
+
+.halfItem{
+	width: 50%;
+	padding-top: 40rpx;
+}
+.ser_img{
+	width: 126rpx;
+	height: 126rpx;
+	border-radius: 63rpx;
+	margin-left: calc(50% - 63rpx);
+	background-color: #09BB07;
+}
+.commonText{
+	font-size: 28rpx;
+	color: rgb(53,53,53);
+	text-align: center;
+	/* height: 50rpx; */
+	line-height: 50rpx;
+}
+.time{
+	font-size: 24rpx;
+	color: rgb(102,102,102);
+	margin-bottom: 30rpx;
+}
+.big{
+	font-size: 30rpx;
+	color: rgb(51,51,51);
+	text-align: left;
+}
+.det{
+	font-size: 28rpx;
+	color: rgb(102,102,102);
+	text-align: left;
+}
+

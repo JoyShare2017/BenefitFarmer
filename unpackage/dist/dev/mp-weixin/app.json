@@ -1,0 +1,87 @@
+{
+  "pages": [
+    "pages/Home/homeTab",
+    "pages/Home/goodsDetail",
+    "pages/Home/goodsComment",
+    "pages/Cart/cartTab",
+    "pages/Cart/orderConfirm",
+    "pages/Message/messageTab",
+    "pages/Message/messageList",
+    "pages/Message/commentList",
+    "pages/Mine/mineTab",
+    "pages/Mine/commissionOrder",
+    "pages/Mine/userManage",
+    "pages/Mine/myAchieve",
+    "pages/Mine/PromoteFee",
+    "pages/Mine/cashUp",
+    "pages/Mine/cashUpRecord",
+    "pages/Mine/cashUpDescription",
+    "pages/Mine/safePrivacy",
+    "pages/Login/changePhone",
+    "pages/Mine/address",
+    "pages/Mine/addAddress",
+    "pages/Mine/statisticData",
+    "pages/Mine/memberDetail",
+    "pages/Mine/myMember",
+    "pages/Mine/myRebuyMember",
+    "pages/Mine/MyOrder/myOrderList",
+    "pages/Mine/MyOrder/applyReturn",
+    "pages/Mine/MyOrder/logisticsDetail",
+    "pages/Mine/MyOrder/myOrderDetail",
+    "pages/Mine/MyOrder/paySuccess",
+    "pages/Mine/MyOrder/returnDetail",
+    "pages/Mine/MyOrder/applyReturn",
+    "pages/Mine/myJiFen",
+    "pages/Mine/jifenDes",
+    "pages/Mine/customerService",
+    "pages/Mine/farmerStory",
+    "pages/Mine/promoteGoods",
+    "pages/Mine/farmerStoryDetail",
+    "pages/Login/login",
+    "pages/Login/regist",
+    "pages/Login/find",
+    "pages/Login/changePwd",
+    "pages/Mine/receiptManage/receiptMan",
+    "pages/Mine/receiptManage/receiptApply",
+    "pages/Mine/receiptManage/receiptConfirm",
+    "pages/Mine/receiptManage/receiptEdit",
+    "pages/Mine/receiptManage/receiptHistory",
+    "pages/Mine/receiptManage/receiptKnow",
+    "pages/Mine/receiptManage/receiptPath",
+    "pages/Mine/receiptManage/receiptProgresss",
+    "pages/Mine/receiptManage/receiptSendEmail",
+    "pages/Mine/caseShare/caseShareHome",
+    "pages/Mine/caseShare/cashShareSend"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#000000",
+    "selectedColor": "#FC0107",
+    "list": [
+      {
+        "pagePath": "pages/Home/homeTab",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/Cart/cartTab",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/Message/messageTab",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/Mine/mineTab",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

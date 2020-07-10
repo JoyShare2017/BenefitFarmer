@@ -1,0 +1,488 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/Home/homeTab",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Home/goodsDetail",
+			"style": {
+				"navigationBarTitleText": "商品详情"
+			}
+		},
+		{
+			"path": "pages/Home/goodsComment",
+			"style": {
+				"navigationBarTitleText": "商品评价",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Cart/cartTab",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Cart/orderConfirm",
+			"style": {
+				"navigationBarTitleText": "订单确认"
+			}
+		},
+		{
+			"path": "pages/Message/messageTab",
+			"style": {
+				"navigationBarTitleText": "消息",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Message/messageList",
+			"style": {
+				"navigationBarTitleText": "消息",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Message/commentList",
+			"style": {
+				"navigationBarTitleText": "我的评价",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Mine/mineTab",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/Mine/commissionOrder",
+			"style": {
+				"navigationBarTitleText": "提成订单",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Mine/userManage",
+			"style": {
+				"navigationBarTitleText": "用户管理"
+			}
+		},
+		{
+			"path": "pages/Mine/myAchieve",
+			"style": {
+				"navigationBarTitleText": "个人成绩"
+			}
+		},
+		{
+			"path": "pages/Mine/PromoteFee",
+			"style": {
+				"navigationBarTitleText": "我的推广"
+			}
+		},
+		{
+			"path": "pages/Mine/cashUp",
+			"style": {
+				"navigationBarTitleText": "立即提现"
+			}
+		},
+		{
+			"path": "pages/Mine/cashUpRecord",
+			"style": {
+				"navigationBarTitleText": "提现记录"
+			}
+		},
+		{
+			"path": "pages/Mine/cashUpDescription",
+			"style": {
+				"navigationBarTitleText": "提现说明"
+			}
+		},
+		{
+			"path": "pages/Mine/safePrivacy",
+			"style": {
+				"navigationBarTitleText": "安全隐私"
+			}
+		},
+		{
+			"path": "pages/Login/changePhone",
+			"style": {
+				"navigationBarTitleText": "修改手机号码"
+			}
+		},
+		{
+			"path": "pages/Mine/address",
+			"style": {
+				"navigationBarTitleText": "收货地址管理"
+			}
+		},
+		{
+			"path": "pages/Mine/addAddress",
+			"style": {
+				"navigationBarTitleText": "新建收件人"
+			}
+		},
+		{
+			"path": "pages/Mine/statisticData",
+			"style": {
+				"navigationBarTitleText": "数据统计",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Mine/memberDetail",
+			"style": {
+				"navigationBarTitleText": "会员详情"
+			}
+		},
+		{
+			"path": "pages/Mine/myMember",
+			"style": {
+				"navigationBarTitleText": "我的会员",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Mine/myRebuyMember",
+			"style": {
+				"navigationBarTitleText": "待复购会员",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Mine/MyOrder/myOrderList",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/Mine/MyOrder/applyReturn",
+			"style": {
+				"navigationBarTitleText": "申请退货"
+			}
+		},
+		{
+			"path": "pages/Mine/MyOrder/logisticsDetail",
+			"style": {
+				"navigationBarTitleText": "物流详情"
+			}
+		},
+		{
+			"path": "pages/Mine/MyOrder/myOrderDetail",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+			"path": "pages/Mine/MyOrder/paySuccess",
+			"style": {
+				"navigationBarTitleText": "支付成功"
+			}
+		},
+		{
+			"path": "pages/Mine/MyOrder/returnDetail",
+			"style": {
+				"navigationBarTitleText": "退货详情"
+			}
+		},{
+			"path": "pages/Mine/MyOrder/applyReturn",
+			"style": {
+				"navigationBarTitleText": "申请退货"
+			}
+		},
+		{
+			"path": "pages/Mine/myJiFen",
+			"style": {
+				"navigationBarTitleText": "我的积分"
+			}
+		},
+		{
+			"path": "pages/Mine/jifenDes",
+			"style": {
+				"navigationBarTitleText": "积分说明"
+			}
+		},{
+			"path": "pages/Mine/customerService",
+			"style": {
+				"navigationBarTitleText": "客服"
+			}
+		},
+		{
+			"path": "pages/Mine/farmerStory",
+			"style": {
+				"navigationBarTitleText": "新农人故事",
+				"enablePullDownRefresh": true, // 开启下拉 安全
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},{
+			"path": "pages/Mine/promoteGoods",
+			"style": {
+				"navigationBarTitleText": "地推物料",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},{
+			"path": "pages/Mine/farmerStoryDetail",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
+			"path": "pages/Login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/Login/regist",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/Login/find",
+			"style": {
+				"navigationBarTitleText": "找回密码"
+			}
+		},
+		{
+			"path": "pages/Login/changePwd",
+	        "style": {
+				"navigationBarTitleText": "修改密码"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptMan",
+	        "style": {
+				"navigationBarTitleText": "发票管理"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptApply",
+	        "style": {
+				"navigationBarTitleText": "发票申请"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptConfirm",
+	        "style": {
+				"navigationBarTitleText": "发票确认"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptEdit",
+	        "style": {
+				"navigationBarTitleText": "发票信息填写"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptHistory",
+	        "style": {
+				"navigationBarTitleText": "发票历史"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptKnow",
+	        "style": {
+				"navigationBarTitleText": "开票须知"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptPath",
+	        "style": {
+				"navigationBarTitleText": "开票流程"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptProgresss",
+	        "style": {
+				"navigationBarTitleText": "开票进度"
+			}
+		},
+		{
+			"path": "pages/Mine/receiptManage/receiptSendEmail",
+	        "style": {
+				"navigationBarTitleText": "发送邮件"
+			}
+		},{
+			"path": "pages/Mine/caseShare/caseShareHome",
+			"style": {
+				"navigationBarTitleText": "案例分享",
+				"enablePullDownRefresh": true, // 开启下拉
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"app-plus":{
+					"pullToRefresh":{
+						"offset":"0px",
+						"style":"default",
+						"contentdown":"正在刷新...",
+						"color":"#333333"
+					}
+				}
+			}
+		},{
+			"path": "pages/Mine/caseShare/cashShareSend",
+			"style": {
+				"navigationBarTitleText": "发布"
+			}
+		}
+		
+	],
+	"tabBar": {
+		"backgroundColor": "#ffffff",
+		"color": "#000000",
+		"selectedColor": "#FC0107",
+		"list": [{
+				"pagePath": "pages/Home/homeTab",
+				"text": "首页"//,
+				// "iconPath": "static/shouye.png",
+				// "selectedIconPath": "static/shouye1.png"
+	
+			},
+			{
+				"pagePath": "pages/Cart/cartTab",
+				"text": "购物车"//,
+				// "iconPath": "static/pingtai.png",
+				// "selectedIconPath": "./static/pingtai1.png"
+			},
+			{
+				"pagePath": "pages/Message/messageTab",
+				"text": "消息"//,
+				// "iconPath": "static/pingtai.png",
+				// "selectedIconPath": "./static/pingtai1.png"
+			},
+			{
+				"pagePath": "pages/Mine/mineTab",
+				"text": "我的"//,
+				// "iconPath": "static/wode.png",
+				// "selectedIconPath": "./static/wode1.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

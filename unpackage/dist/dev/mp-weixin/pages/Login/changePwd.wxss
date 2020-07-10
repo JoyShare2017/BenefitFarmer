@@ -1,0 +1,15 @@
+
+page{background-color: #ebeef1;}
+.item_title {
+	color: #232323;
+	font-size: 24rpx;
+	width: 200rpx;
+}
+.item_input {
+	margin-top: 10rpx;
+	margin-left: 20rpx;
+	font-size: medium;
+	color: #3C3E49;
+	font-size: 24rpx;
+}
+
