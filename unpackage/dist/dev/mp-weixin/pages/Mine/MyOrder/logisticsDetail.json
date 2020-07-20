@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "物流详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "time-line": "/components/xuan-timeLine/xuan-timeLine"
+  }
 }

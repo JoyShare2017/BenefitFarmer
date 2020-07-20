@@ -2,13 +2,10 @@
 	<view class="page">
 		<view class="uni-row" style="background-color: rgb(253,251,238);">
 			<view
-				class="address"
-				style="font-size: 26rpx;color: rgb(255,75,75);
-			height: 80rpx;line-height: 80rpx;width: calc(100% - 210rpx);"
-			>
+				class="address tips">
 				温馨提示：订单确认收货后可在此开票
 			</view>
-			<button class="receiptKnow" type="default" @click="needknow()">发票须知</button>
+			<button class="receiptKnow"  @click="needknow()">发票须知</button>
 		</view>
 
 		<view class="uni-list" style="margin-bottom: 100rpx;">
@@ -31,7 +28,7 @@
 							</view>
 						</view>
 
-						<view class="address" style="font-size: 24rpx;color: rgb(0,0,0);padding-right: 30rpx;margin-top: 20rpx;font-weight: bold;">
+						<view class="address paddingRight30" style="font-size: 24rpx;color: rgb(0,0,0);margin-top: 20rpx;font-weight: bold;">
 							￥100.00
 						</view>
 					</view>
@@ -45,7 +42,7 @@
 			<view style="width: 40%;">
 				<view class="uni-row">
 					<view class="address" style="color: rgb(102,102,102);font-size: 28rpx;">合计:</view>
-					<view class="address" style="padding-left: 0rpx;color: rgb(254,70,70);font-size: 28rpx;">￥0.00</view>
+					<view class="address" style="color: rgb(254,70,70);font-size: 28rpx;">￥0.00</view>
 				</view>
 				<view class="address" style="color: rgb(153,153,153);font-size: 20rpx;">已选择0项</view>
 			</view>
@@ -106,8 +103,10 @@ page {
 	padding-right: 10rpx;
 	margin-top: 17rpx;
 	background-color: transparent;
+	
 }
 .receiptKnow::after {
+	color: rgb(255, 86, 81);
 	border-color: rgb(255, 86, 81);
 }
 
@@ -125,7 +124,10 @@ page {
 	font-size: 32rpx;
 	padding-left: 30rpx;
 }
-
+.tips{
+	font-size: 26rpx;color: rgb(255,75,75);
+	height: 80rpx;line-height: 80rpx;width: calc(100% - 210rpx);
+}
 .bottom_tool {
 	width: 100%;
 	height: 100rpx;

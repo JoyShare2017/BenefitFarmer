@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "订单详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "wm-number-box": "/common/wm-number-box"
+  }
 }

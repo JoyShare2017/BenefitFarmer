@@ -5,7 +5,7 @@
 		<view class="uni-list" >
 			<view class="uni-list-cell" style="background-color: #F4F5F6;">
 				<!-- 白色view -->
-					<view    class="cell_holder" @click="detail()">
+					<view    class="cell_holder" >
 						<view class="uni-row" style="padding-top: 20rpx;padding-bottom: 20rpx;border-bottom: 1rpx solid #EBEEF1;">
 							<view class="order_waitPay" style="width: calc(100% - 500rpx);">
 								待付款
@@ -18,7 +18,7 @@
 							</button>
 						</view>
 						
-						<view  style="display: flex;flex-direction: row;margin-top: 20rpx;">
+						<view  style="display: flex;flex-direction: row;margin-top: 20rpx;" @click="detail()">
 						
 							<image class="goodsImg" mode=""></image>
 							
@@ -47,12 +47,12 @@
 						</view>
 						
 						<!-- 放按钮的view -->
-						<view style="border-top: 1rpx solid #E5E5E5;padding-top: 30rpx;">
+						<view style="border-top: 1rpx dashed #E5E5E5;padding-top: 30rpx;">
 							<view class="uni-row" style="">
 								<button class="grayBtn" type="default" style="margin-left: calc(100% - 440rpx);">
 									取消订单
 								</button>
-								<button class="oragneBtn" type="default">
+								<button class="oragneBtn">
 									在线支付
 								</button>
 							</view>

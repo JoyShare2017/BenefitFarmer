@@ -31,5 +31,10 @@
 	.systemGreen{
 		background-color: #1AAD19;
 	}
-	
+	.paddingLeft30{
+		padding-left: 30rpx;
+	}
+	.paddingRight30{
+		padding-right: 30rpx;
+	}
 </style>

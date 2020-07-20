@@ -25,42 +25,43 @@
 		<swiper class="bannerHolder" :indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item v-for="(ban,index) in bannerData" :key="index">
 				<navigator url="../Detail/newsDetail">
-					<image class="bannerImage" :src="getImgUrl(ban.focus_img)" mode="aspectFill"></image>
+					<image class="bannerImage" :src="getImgUrl(ban.image)" mode="aspectFill"></image>
 				</navigator>
 			</swiper-item>
 		</swiper>
 		
 		<view style="width: 100%;height:190rpx;">
-			<image class="slogan" src=""  mode=""></image>
+			<image class="slogan" :src="getImgUrl('upload/uploads/images/xuanchuan.png')"  mode=""></image>
 		</view>
 		<!-- 商品列表 -->
 		<view class="uni-list page"  style="margin-top: 20rpx;">
-			<view class="uni-list-cell uni-column" style="margin-bottom: 20rpx;">
-				<view class="cellHolder" >
-					<image style="width: 100%;background-color: #09BB07;height: 490rpx;"
-					 mode="" @click="seeDetail()"></image>
+			<view class="uni-list-cell" style="margin-bottom: 20rpx;flex-direction: column;background-color: rgb(240,240,240);">
+				<view class="cellHolder" v-for="(item,index) in goodsList" :key="index">
+					<image style="width: 100%;background-color: #09BB07;height: 490rpx;border-radius:10rpx 10rpx 0rpx 0rpx;"
+					 mode="" :src="getImgUrl(item.thumb)"  @click="seeDetail(item.id)"></image>
 					
 					<view  class="uni-row">
 						<view class="sku" style="width: 50%;">
-							316颗粒底肥(2袋)
+							{{item.name}}
 						</view>
-						<view class="detail" style="width: 50%;text-align: right;">
-							2333人评论
+						<view class="detail" style="width: 50%;text-align: right;padding-right: 30rpx;">
+							{{item.evaluate_num}}人评论
 						</view>
 					</view>
 					
 					<view class="detail">
-						改善土壤 提高肥效吸收
+						商品描述:{{item.describe}}
 					</view>
 					
 					<view style="display: flex;flex-direction: row;padding-right: 30rpx;">
 						<view class="price">
-							￥ 120
+							￥ {{item.price}}
 						</view>
 						<button class="rebuy">
-						复购立省20.00
+						复购立省{{item.price*item.discount}}
 						</button>
-						<view class="iconfont icon-gouwuche" style="font-size: 40rpx;" @click="addCart()">
+						<view class="iconfont icon-gouwuche" style="font-size: 40rpx;" 
+						@click="addCart()">
 							
 						</view>
 					</view>
@@ -86,37 +87,63 @@
 			return{
 				isShowBind:false,
 				isShowAlphaView:false,
-				bannerData:[{
-					focus_img:'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1593565729&di=bf0297a1bb18781b89c9725ff687cd53&src=http://img007.hc360.cn/m1/M07/9D/91/wKhQcFRRt5yEXtZLAAAAAMD3N9g207.jpg'
-				},
-				{
-					focus_img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593575815914&di=243ef1045c91ecb424f64816720fdb6b&imgtype=0&src=http%3A%2F%2Fsup.user.img38.51sole.com%2Fimages3%2F20150409%2F1556126_2015491112220.jpg'
-				}],
-				dataList:[]
+				bannerData:[],
+				page:1,
+				goodsList:[]
 			}
 		},
+		onLoad() {
+			
+			this.getBanner();
+			this.getGoods();
+		},
 		methods:{
+			getBanner(){
+				this.requestFromServer({
+					url:'/index/index/homeBannerList',
+					data:{
+					}
+				}).then((res)=>{
+					console.log(res);
+					this.bannerData=res.data;
+							
+				})
+			},
+			getGoods(){
+				this.requestFromServer({
+					url:'/index/index/productList',
+					data:{
+						page:this.page
+					}
+				}).then((res)=>{
+					console.log(res);
+					if(this.page==1){
+						this.goodsList=[];
+					}
+					this.goodsList=this.goodsList.concat(res.data);
+							
+				})
+			},
 			closeMe(){
 				this.isShowBind=false;
 			},
 			getImgUrl(icon) {
-				// return this.mainServer + icon;
-				return icon;
+				return this.mainServer + icon;
 			},
 			
-			seeDetail(){
+			seeDetail(theId){
 				uni.navigateTo({
-					url:'./goodsDetail'
+					url:'./goodsDetail?query='+theId
 				})
 				
 			},
 			
 			addCart(){
 				this.isShowAlphaView=true;
-			   uni.setTabBarBadge({
-			     index: 1,
-			     text: '2'
-			   })	
+			   // uni.setTabBarBadge({
+			   //   index: 1,
+			   //   text: '2'
+			   // })	
 			},
 			gotoLogin(){
 				uni.navigateTo({
@@ -190,15 +217,15 @@
 		background-color: #2C405A;
 	}
 	.cellHolder{
-		margin-left: 30rpx;
-		margin-right: 30rpx;
+		/* margin-left: 30rpx; */
+		/* margin-right: 30rpx; */
+		margin: 10rpx 30rpx 10rpx 30rpx;
 		background-color: #FFFFFF;
 		border-radius: 10rpx;
 		/* display: flex; */
 		
 		/* flex-direction: column; */
-		/* background-color: #007AFF; */
-		width: 100%;
+		width: calc(100% - 60rpx);
 	}
 	.sku{
 		padding-left: 30rpx;

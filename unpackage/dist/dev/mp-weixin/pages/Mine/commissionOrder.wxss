@@ -1,5 +1,5 @@
 
-page{background-color: #ebeef1;}
+page{background-color: rgb(240,240,240);}
 .tabNav-item {
 	color: rgb(53,53,53);
 	width: 50%;
@@ -57,6 +57,20 @@ page{background-color: #ebeef1;}
 	line-height: 50rpx;
 	font-size: 28rpx;
 	padding-left: 30rpx;
+}
+.gain{
+	height: 50rpx;
+	line-height: 50rpx;
+	padding-right: 30rpx;
+	color: rgb(255,78,0);
+	margin-top: 60rpx;
+	font-size: 28rpx;
+	width: 35%;
+	text-align: right;
+}
+.gain::before{
+	content: '积分收入 ';
+	color: rgb(153,153,153);
 }
 .goodsImg{
 	margin-left: 30rpx;
@@ -121,6 +135,7 @@ page{background-color: #ebeef1;}
 	padding-bottom: 14px;
 	text-align: center;
 	background-color: transparent;
+	background-color: rgb(240,240,240);
 }
 .loading-more-text {
 	font-size: 28rpx;

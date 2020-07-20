@@ -58,15 +58,15 @@
 	background-color: #2C405A;
 }
 .cellHolder{
-	margin-left: 30rpx;
-	margin-right: 30rpx;
+	/* margin-left: 30rpx; */
+	/* margin-right: 30rpx; */
+	margin: 10rpx 30rpx 10rpx 30rpx;
 	background-color: #FFFFFF;
 	border-radius: 10rpx;
 	/* display: flex; */
 	
 	/* flex-direction: column; */
-	/* background-color: #007AFF; */
-	width: 100%;
+	width: calc(100% - 60rpx);
 }
 .sku{
 	padding-left: 30rpx;

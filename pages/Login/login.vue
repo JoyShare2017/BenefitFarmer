@@ -34,33 +34,36 @@
 			其他方式登录
 		</view>
 		
-		<view class="iconfont icon-weixin" style="font-size: 130rpx;color: rgb(3,142,62);text-align: center;">
+		<view class="iconfont icon-weixin" style="font-size: 130rpx;color: rgb(3,142,62);text-align: center;"
+		@click="wxLogin()">
 			
 		</view>
 		
-		<image class="bigLogo" src="" mode="" @click="wxLogin()"></image>
+		
 		
 		
 	</view>
 </template>
 
 <script>
+	import md5 from '../../common/md5.js';
 export default {
+	
 	data() {
 		return {
-			myPhone: '',
-			myPwd: ''
+			myPhone: '15130134935',
+			myPwd: '123456'
 		};
 	},
 	onLoad() {
-		var _this = this;
-		uni.getStorage({
-			key: 'lastaccount',
-			success: function(res) {
-				console.log('getStoragelastaccount' + res.data);
-				_this.myPhone = res.data;
-			}
-		});
+		// var _this = this;
+		// uni.getStorage({
+		// 	key: 'lastaccount',
+		// 	success: function(res) {
+		// 		console.log('getStoragelastaccount' + res.data);
+		// 		_this.myPhone = res.data;
+		// 	}
+		// });
 	},
 
 	methods: {
@@ -80,52 +83,30 @@ export default {
 				});
 				return;
 			}
-			uni.showNavigationBarLoading();
-			uni.request({
-				url: this.mainServer + 'Home/User/login',
-				data: {
-					user_name: this.myPhone,
-					password: this.myPwd
-				},
-				method: 'POST',
-				success: res => {
-					uni.hideNavigationBarLoading();
-					console.log(res);
-					uni.showToast({
-						icon: 'none',
-						title: res.data.message
-					});
-					// 本地存入 同步
-					if (res.data.code == 1) {
-						try {
-							uni.setStorageSync('mid', res.data.mid);
-							uni.setStorageSync('id', res.data.id);
-							uni.setStorageSync('role', res.data.role);
-							uni.setStorageSync('lastaccount', this.myPhone);
-						} catch (e) {
-							//TODO handle the exception
-						}
-						uni.navigateBack({});
-					}
-				},
-				fail: res => {
-					uni.hideNavigationBarLoading();
+			var md5Pwd = md5(this.myPwd).substr(8,16);
+			console.log(md5Pwd);
+			this.requestFromServer({
+				url:'/index/common/login',
+				data:{
+					userName:this.myPhone,
+					userPass:md5Pwd
 				}
-			});
+			}).then((res)=>{
+				console.log(res);
+						// 本地存入 同步
+						if (res.status == 200) {
+							try {
+								uni.setStorageSync('userInfo', res.data);
+							} catch (e) {
+								console.log(e);
+							}
+							uni.navigateBack({});
+						}
+			})
+			
+			
 		},
-		// getMyPersonalInfo(info_key) {
-		// 	console.log('进来了'+info_key);
-		// 	uni.getStorage({
-		// 		key: info_key,
-		// 		success: function(res) {
-		// 			console.log('getMyPersonalInfo-MinePage.vue' + res.data);
-		// 			return res.data;
-		// 		},
-		// 		fail(eeee) {
-		// 			console.log('eeeeInfo-MinePage.vue' + eeee);
-		// 		}
-		// 	});
-		// },
+		
 		forget() {
 			uni.navigateTo({
 				url: './find'
@@ -141,6 +122,16 @@ export default {
 				provider:'weixin',
 				success: (res) => {
 					console.log(res);
+					// this.requestFromServer({
+					// 	url:'/index/common/loginWechat',
+					// 	data:{
+					// 		code:res.authResult.code,
+					// 		lv:'',
+					// 		encryptedData:''
+					// 	}
+					// }).then((res=>{
+						
+					// })
 				}
 			})
 		}

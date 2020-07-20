@@ -10,7 +10,9 @@
 				
 				<view class="uni-list-cell-navigate" style="width: 100%;">
 					<view style="display: flex;flex-direction: row;width: 100%;">
-						<image class="icon" src="" mode=""></image>
+						<!-- <image class="icon" src="" mode=""></image> -->
+						<view v-if="fun.index==0" class="iconfont icon-turangjiance icon"></view>
+						<view v-if="fun.index==1" class="iconfont icon-shucai icon" style="font-size: 50rpx;margin-top: -20rpx;"></view>
 						<view style="margin-left: 20rpx;width: 40%;">{{fun.title}}</view>
 						
 						<view v-if="fun.index==0" class="uni-row" style="width: 55%;">
@@ -108,10 +110,12 @@
 		
 	}
 	.icon{
-		margin-top: 10rpx;
+		margin-top: -10rpx;
 		width: 46rpx;
 		height: 36rpx;
-		background-color: #007AFF;
+		color: rgb(51,51,51);
+		font-size: 40rpx;
+		/* background-color: #007AFF; */
 	}
 	.userInfo{
 		height: 50rpx;

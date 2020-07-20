@@ -9,7 +9,7 @@ page{background-color: rgb(240,240,240);}
 		margin-top: 40rpx;
 		width: 172rpx;
 		height: 172rpx;
-		border-radius: 81rpx;
+		border-radius: 86rpx;
 		background-color: #007AFF;
 		margin-left: calc(50% - 86rpx);
 }
@@ -21,7 +21,7 @@ page{background-color: rgb(240,240,240);}
 		text-align: center;
 }
 .duplicateBtn{
-		margin-top: 10rpx;
+		margin-top: 8rpx;
 		height: 34rpx;
 		line-height: 34rpx;
 		width: 100rpx;
@@ -44,4 +44,21 @@ page{background-color: rgb(240,240,240);}
 		color: rgb(51,51,51);
 		background-color: #FFFFFF;
 }
+.bind{
+		font-size: 28rpx;
+		color: rgb(153,153,153);
+}
+.bind::before{
+		content: '微信绑定';
+		color: rgb(0,0,0);
+}
+.nobind{
+		font-size: 28rpx;
+		color: #FC0107;
+}
+.nobind::before{
+		content: '微信绑定';
+		color: rgb(0,0,0);
+}
+	
 

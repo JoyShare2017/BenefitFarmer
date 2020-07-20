@@ -11,9 +11,14 @@
 					
 					<view  style="display: flex;flex-direction: row;margin-top: 20rpx;">
 					
-					<label style="margin-left: 20rpx;margin-top: 40rpx;">
-						<checkbox :value="1" /><text></text>
-					</label>
+					<view v-if="index==0"  class="iconfont icon-xuanzhongyuandian1"
+					style="font-size: 50rpx;margin-top: 20rpx;margin-left: 20rpx;color: rgb(153,153,153);">
+						
+					</view>
+					<view v-if="index>0"  class="iconfont icon-xuanzhong"
+					style="font-size: 50rpx;margin-top: 20rpx;margin-left: 20rpx;color: rgb(0,139,60);">
+						
+					</view>
 					    
 						<image class="goodsImg" mode=""></image>
 						
@@ -58,11 +63,27 @@
 		
 		<!-- 底部工具栏 -->
 		<view   class="bottom_tool">
-			<view class="cartBtn" style="width: 20%;margin-top: 20rpx;">
-				<label>
-					<checkbox :value="1" /><text>全选</text>
-				</label>
+			<view v-if="!isAllSelected" @click="allSel()" class="cartBtn uni-row" style="width: 20%;">
+				<view  class="iconfont icon-xuanzhong" 
+				style="color: rgb(0,139,60);font-size: 34rpx;margin-top: 20rpx;margin-left: 20rpx;">
+					
+				</view>
+				<view class="allSel">
+					取消
+				</view>
 			</view>
+			<view v-if="isAllSelected" @click="allSel()" class="cartBtn uni-row" style="width: 20%;">
+				<view  class="iconfont icon-xuanzhongyuandian1" 
+				style="font-size: 34rpx;margin-top: 20rpx;margin-left: 20rpx;color: rgb(153,153,153);">
+					
+				</view>
+				<view class="allSel">
+					全选
+				</view>
+			</view>
+			
+			
+			
 			<view style="width: 40%;margin-top: 10rpx;">
 				<view class="uni-row">
 					<view class="sum" style="color: rgb(102,102,102);font-size: 28rpx;">
@@ -95,7 +116,8 @@
 			return{
 				goodsList:[
 					{},{},{},{},{}
-				]
+				],
+				isAllSelected:false
 			}
 		},
 		methods:{
@@ -117,6 +139,9 @@
 			},
 			numberChange(value,id){
 				console.log(value);
+			},
+			allSel(){
+				this.isAllSelected=!this.isAllSelected;
 			}
 		}
 	}
@@ -138,6 +163,16 @@
 		font-size: 32rpx;
 		padding-left: 30rpx;
 	}
+	
+	.allSel{
+		height: 50rpx;
+		line-height: 50rpx;
+		font-size: 24rpx;
+		padding-left: 10rpx;
+		margin-top: 25rpx;
+		color: rgb(102,102,102);
+	}
+	
 	.sum{
 		height: 40rpx;
 		line-height: 40rpx;
@@ -163,11 +198,11 @@
 	.bottom_tool{
 		width: 100%;
 		height: 100rpx;
-		background-color: #f6f6f6;
+		background-color: #FFFFFF;
 		display: flex; 
 		flex-direction: row;
 		position: fixed;
-		border-top: 1rpx  solid #616262;
+		border-top: 1rpx  solid #E5E5E5;
 		bottom:calc(var(--window-bottom));
 	}
 	.editBtnImg{

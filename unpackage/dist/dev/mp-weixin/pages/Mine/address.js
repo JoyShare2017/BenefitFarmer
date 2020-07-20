@@ -178,6 +178,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 
 {
@@ -239,6 +252,9 @@ var _default =
                 } else {
                   _this2.loadingText = '没有更多数据了';
                 }case 8:case "end":return _context.stop();}}}, _callee);}))();
+
+    },
+    setDefault: function setDefault(item) {
 
     },
     del: function del() {

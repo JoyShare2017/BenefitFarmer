@@ -99,6 +99,13 @@ page{background-color: #FFFFFF;}
 	line-height: 99rpx;
 }
 .cartBtn{
+	color: rgb(102,102,102);
+	font-size: 22rpx;
+	text-align: center;
+	height: 30rpx;
+	line-height: 30rpx;
+
+	margin-top: -10rpx;
 }
 .bigBtn{
 	width: 40%;
@@ -120,7 +127,10 @@ page{background-color: #FFFFFF;}
 .alphaWhiteV{
 	background-color: #FFFFFF;
 	padding: 30rpx;
+	width: calc(100% - 60rpx);
 	margin-bottom: 0rpx;
+	position: fixed;
+	bottom:calc(0px + 100rpx);
 }
 .alp_img{
 	width: 200rpx;
@@ -172,5 +182,16 @@ page{background-color: #FFFFFF;}
 	font-size: 28rpx;
 	color: rgb(51,51,51);
 	width: calc(50% - 10rpx);
+}
+.redNum{
+	width: 30rpx;
+	height: 30rpx;
+	line-height: 30rpx;
+	font-size: 18rpx;
+	color: #FFFFFF;
+	background-color: #FC0107;
+	border-radius: 15rpx;
+	text-align: center;
+	position: absolute;margin-left: 90rpx;z-index: 40;
 }
 

@@ -81,7 +81,7 @@
 			"style": {
 				"navigationBarTitleText": "消息",
 				"enablePullDownRefresh": true, // 开启下拉
-				"backgroundTextStyle": "dark", // 样式只有 dark 和 light
+				"backgroundTextStyle": "dark", // 样式只有 dark 和 lightapplyReturn
 				"app-plus":{
 					"pullToRefresh":{
 						"offset":"0px",
@@ -260,12 +260,7 @@
 				}
 			}
 		},
-		{
-			"path": "pages/Mine/MyOrder/applyReturn",
-			"style": {
-				"navigationBarTitleText": "申请退货"
-			}
-		},
+		
 		{
 			"path": "pages/Mine/MyOrder/logisticsDetail",
 			"style": {
@@ -444,6 +439,16 @@
 			"path": "pages/Mine/caseShare/cashShareSend",
 			"style": {
 				"navigationBarTitleText": "发布"
+			}
+		},{
+			"path": "pages/Mine/myQRCode/myQRCode",
+			"style": {
+				"navigationBarTitleText": "我的二维码"
+			}
+		},{
+			"path": "pages/Mine/myQRCode/myQRCodeDetail",
+			"style": {
+				"navigationBarTitleText": "我的二维码"
 			}
 		}
 		

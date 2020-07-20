@@ -15,10 +15,10 @@ _vue.default.config.productionTip = false;
 _App.default.mpType = 'app';
 
 
-var serverPath = 'http://wzf.shzzpt.org.cn/';
+var serverPath = 'http://192.168.2.250:8046/';
 _vue.default.prototype.mainServer = serverPath;
 _vue.default.prototype.requestFromServer = function (options) {
-
+  console.log(options.url);
   var promise = new Promise(function (resolve, reject) {
     uni.showNavigationBarLoading();
     uni.request({
@@ -27,6 +27,7 @@ _vue.default.prototype.requestFromServer = function (options) {
       method: 'POST',
       success: function success(res) {
         uni.hideNavigationBarLoading();
+        console.log(res.data);
         resolve(res.data);
       },
       fail: function fail(fa) {

@@ -63,6 +63,7 @@
 			
 		</view>
 
+        <!-- 会员统计 -->
 		<view v-show="currentIndex == 1">
 			<!-- 会员人数总概 -->
 			<view class="topView">
@@ -341,7 +342,7 @@ page {
 /* 会员统计部分css */
 
 .topView {
-	width: 100%;
+	/* width: 100%; */
 	height: 80rpx;
 	background-color: rgb(254, 245, 225);
 	padding-left: 30rpx;

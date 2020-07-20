@@ -2,7 +2,10 @@
 	<view class="page" style="background-color: #FFFFFF;">
 		<view v-if="isVisitor" class="uni-row">
 			<view class="halfItem">
-				<image class="ser_img" src="" mode=""></image>
+
+				<view class="iconfont icon-kefucopy ser_img">
+					
+				</view>
 				<view class="commonText">
 					平台客服
 				</view>
@@ -11,7 +14,9 @@
 				</view>
 			</view>
 			<view class="halfItem">
-				<image class="ser_img" src="" mode=""></image>
+				<view class="iconfont icon-lianxiren ser_img">
+					
+				</view>
 				<view class="commonText">
 					县级负责人
 				</view>
@@ -74,11 +79,10 @@
 	}
 	
 	.ser_img{
-		width: 126rpx;
-		height: 126rpx;
 		border-radius: 63rpx;
-		margin-left: calc(50% - 63rpx);
-		background-color: #09BB07;
+		text-align: center;
+		font-size: 126rpx;
+		color: rgb(153,153,153);
 	}
 	
 	

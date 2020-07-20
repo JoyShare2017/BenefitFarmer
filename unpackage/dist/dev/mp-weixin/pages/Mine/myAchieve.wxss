@@ -6,10 +6,12 @@ page{background-color: rgb(240,240,240);}
 		width: 100%;
 }
 .icon{
-		margin-top: 10rpx;
+		margin-top: -10rpx;
 		width: 46rpx;
 		height: 36rpx;
-		background-color: #007AFF;
+		color: rgb(51,51,51);
+		font-size: 40rpx;
+		/* background-color: #007AFF; */
 }
 .userInfo{
 		height: 50rpx;

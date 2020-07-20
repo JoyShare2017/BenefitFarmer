@@ -16,7 +16,7 @@
 		</view>
 		<!-- 消息列表 -->
 		<view class="uni-list" >
-			<view class="uni-list-cell" style="background-color: #F4F5F6;">
+			<view class="uni-list-cell" style="background-color: rgb(240,240,240);">
 				
 				
 					<!-- 白色view -->
@@ -204,7 +204,8 @@
 </script>
 
 <style>
-	page{background-color: #ebeef1;}
+	page{background-color: rgb(240,240,240);}
+
 	.tabNav-item {
 		color: rgb(53,53,53);
 		width: 50%;
@@ -337,6 +338,7 @@
 		padding-bottom: 14px;
 		text-align: center;
 		background-color: transparent;
+		background-color: rgb(240,240,240);
 		
 	}
 	

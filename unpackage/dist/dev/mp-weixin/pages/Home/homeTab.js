@@ -105,10 +105,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   var l0 = _vm.__map(_vm.bannerData, function(ban, index) {
-    var m0 = _vm.getImgUrl(ban.focus_img)
+    var m0 = _vm.getImgUrl(ban.image)
     return {
       $orig: _vm.__get_orig(ban),
       m0: m0
+    }
+  })
+
+  var m1 = _vm.getImgUrl("upload/uploads/images/xuanchuan.png")
+
+  var l1 = _vm.__map(_vm.goodsList, function(item, index) {
+    var m2 = _vm.getImgUrl(item.thumb)
+    return {
+      $orig: _vm.__get_orig(item),
+      m2: m2
     }
   })
 
@@ -116,7 +126,9 @@ var render = function() {
     {},
     {
       $root: {
-        l0: l0
+        l0: l0,
+        m1: m1,
+        l1: l1
       }
     }
   )
@@ -233,43 +245,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
     return {
       isShowBind: false,
       isShowAlphaView: false,
-      bannerData: [{
-        focus_img: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1593565729&di=bf0297a1bb18781b89c9725ff687cd53&src=http://img007.hc360.cn/m1/M07/9D/91/wKhQcFRRt5yEXtZLAAAAAMD3N9g207.jpg' },
-
-      {
-        focus_img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593575815914&di=243ef1045c91ecb424f64816720fdb6b&imgtype=0&src=http%3A%2F%2Fsup.user.img38.51sole.com%2Fimages3%2F20150409%2F1556126_2015491112220.jpg' }],
-
-      dataList: [] };
+      bannerData: [],
+      page: 1,
+      goodsList: [] };
 
   },
+  onLoad: function onLoad() {
+
+    this.getBanner();
+    this.getGoods();
+  },
   methods: {
+    getBanner: function getBanner() {var _this = this;
+      this.requestFromServer({
+        url: '/index/index/homeBannerList',
+        data: {} }).
+
+      then(function (res) {
+        console.log(res);
+        _this.bannerData = res.data;
+
+      });
+    },
+    getGoods: function getGoods() {var _this2 = this;
+      this.requestFromServer({
+        url: '/index/index/productList',
+        data: {
+          page: this.page } }).
+
+      then(function (res) {
+        console.log(res);
+        if (_this2.page == 1) {
+          _this2.goodsList = [];
+        }
+        _this2.goodsList = _this2.goodsList.concat(res.data);
+
+      });
+    },
     closeMe: function closeMe() {
       this.isShowBind = false;
     },
     getImgUrl: function getImgUrl(icon) {
-      // return this.mainServer + icon;
-      return icon;
+      return this.mainServer + icon;
     },
 
-    seeDetail: function seeDetail() {
+    seeDetail: function seeDetail(theId) {
       uni.navigateTo({
-        url: './goodsDetail' });
+        url: './goodsDetail?query=' + theId });
 
 
     },
 
     addCart: function addCart() {
       this.isShowAlphaView = true;
-      uni.setTabBarBadge({
-        index: 1,
-        text: '2' });
-
+      // uni.setTabBarBadge({
+      //   index: 1,
+      //   text: '2'
+      // })	
     },
     gotoLogin: function gotoLogin() {
       uni.navigateTo({

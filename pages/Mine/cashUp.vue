@@ -18,7 +18,8 @@
 		</view>
 		<view class="whiteTop">
 			<view class="wenzi">￥</view>
-			<input type="number" class="item_input"  value="0.00" placeholder="" v-model="myPwd" />
+			<input type="number" class="item_input"  value="0.00" placeholder="" 
+			v-model="money" />
 			
 		</view>
 		<view style="margin-left: 30rpx;width: calc(100% - 60rpx);height: 1rpx;background-color: #E5E5E5;">
@@ -39,6 +40,7 @@
 	export default{
 		data(){
 			return{
+				money:'',
 				secondSection:[
 					{
 						index:0,

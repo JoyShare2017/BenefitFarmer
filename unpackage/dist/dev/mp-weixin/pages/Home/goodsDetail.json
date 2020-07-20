@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
-    "wm-number-box": "/common/wm-number-box"
+    "wm-number-box": "/common/wm-number-box",
+    "uni-badge": "/components/uni-badge/uni-badge"
   }
 }

@@ -3,16 +3,18 @@
 		
 		<view class="greenTop">
 			<view  style="margin-left: 30rpx;">
-				<!-- <image class="headImg iconfont icon-touxiang" mode="" style="font-size: 114rpx;"></image> -->
-				<view class="iconfont icon-touxiang"  style="font-size: 114rpx;color: #BBBBBB;margin-top: -30rpx;"></view>
+				<image v-if="userInfo" class="headImg" mode="" style="font-size: 114rpx;"
+			      :src="getImgUrl(userInfo.user_img)"></image>
+				<view v-if="!userInfo" class="iconfont icon-touxiang"  
+				style="font-size: 114rpx;color: #BBBBBB;margin-top: -30rpx;"></view>
 			</view>
 			
 			<view class="uni-column" style="margin-left: 20rpx;width: 60%;padding-top: 7rpx;">
 				<view class="userInfo">
-					昵称：门一马
+					昵称：{{userInfo?userInfo.user_nickname:'未设置昵称'}}
 				</view>
 				<view class="userInfo" style="font-size: 22rpx;">
-					会员号：12138
+					会员号：{{userInfo?userInfo.user_name:'暂无会员号'}}
 				</view>
 			</view>
 			
@@ -50,7 +52,7 @@
 		<view class="twoBtnView">
 			<view class="twoBtn_item" v-for="(item,index) in secondSection" :key="index">
 				
-				<view v-if="index==0" class="uni-row">
+				<view v-if="index==0" class="uni-row" @click="myQR()">
 					<view  class="iconfont icon-erweima share" style="font-size: 34rpx;color: rgb(5,144,66);">
 						
 					</view>
@@ -59,7 +61,7 @@
 					</view>
 				</view>
 				
-				<view v-if="index==1" class="uni-row">
+				<view v-if="index==1" class="uni-row" @click="clickShare()">
 					<view  class="iconfont icon-fenxiang1 share" style="font-size: 34rpx;color: rgb(5,144,66);">
 						
 					</view>
@@ -108,6 +110,7 @@
 	export default{
 		data(){
 			return{
+				userInfo:{},
 				firstSection:[
 					{
 						index:0,
@@ -179,6 +182,12 @@
 				],
 				
 			}
+		},
+		onLoad() {
+			this.getUserInfoWithKey('userInfo').then((info)=>{
+				console.log(info);
+				this.userInfo=info;
+			})
 		},
 		methods:{
 			async choose(){
@@ -265,7 +274,18 @@
 				// uni.navigateTo({
 				// 	url:'./addAddress'
 				// })
-			}
+			},
+			myQR(){
+				uni.navigateTo({
+					url:'./myQRCode/myQRCode'
+				})
+			},
+			clickShare(){
+				
+			},
+			getImgUrl(icon) {
+				return this.mainServer + icon;
+			},
 		}
 	}
 </script>

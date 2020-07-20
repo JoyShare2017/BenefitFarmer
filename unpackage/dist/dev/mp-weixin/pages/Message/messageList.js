@@ -252,28 +252,24 @@ var _default =
   onPullDownRefresh: function onPullDownRefresh() {
     this.getServicList();
   },
-  onLoad: function onLoad(eee) {
-
-    var _this = this;
-    uni.getStorage({
-      key: 'mid',
-      success: function success(res) {
-        console.log('getStoragegemid' + res.data);
-        _this.theMid = res.data;
-        // _this.getServicList();
-      } });
-
-    // this.getServicList();
+  onLoad: function onLoad(param) {
+    if (param.query) {
+      this.changeIndex(param.query);
+    }
   },
   methods: {
     clickItem: function clickItem(e, index) {
       this.showNewsData = [];
       this.page = 1;
+      this.changeIndex(e.id);
+    },
+
+    changeIndex: function changeIndex(index) {
       var _this = this;
-      _this.currentIndex = e.id;
-      _this.moveLineOffset = e.id * 33.3333 + 100 / 12;
+      _this.currentIndex = index;
+      _this.moveLineOffset = index * 33.3333 + 100 / 12;
       this.loadingText = '正在加载数据...';
-      _this.isDraft = _this.currentIndex == 2;
+
       uni.startPullDownRefresh({});
 
 

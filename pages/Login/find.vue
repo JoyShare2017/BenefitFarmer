@@ -40,6 +40,7 @@
 </template>
 
 <script>
+	import md5 from '../../common/md5.js';
 	export default{
 		data(){
 			return{
@@ -125,8 +126,8 @@
 					data:{
 						phone:this.myPhone,
 						code:this.myYZM,
-						password:this.myPwd,
-						repass:this.myPwdAgain,
+						password:md5(this.myPwd).substr(8,16),
+						repass:md5(this.myPwd).substr(8,16),
 					},
 					method:"POST",
 					success: (res) => {

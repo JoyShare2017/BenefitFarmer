@@ -6,10 +6,10 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 
-var serverPath = 'http://wzf.shzzpt.org.cn/'
+var serverPath = 'http://192.168.2.250:8046/'
 Vue.prototype.mainServer = serverPath;
 Vue.prototype.requestFromServer = (options) => {
-
+console.log(options.url);
 	var promise = new Promise((resolve, reject) => {
 		uni.showNavigationBarLoading();
 		uni.request({
@@ -18,6 +18,7 @@ Vue.prototype.requestFromServer = (options) => {
 			method: 'POST',
 			success: (res) => {
 				uni.hideNavigationBarLoading();
+				console.log(res.data);
 				resolve(res.data);
 			},
 			fail: (fa) => {

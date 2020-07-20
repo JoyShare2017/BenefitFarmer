@@ -126,12 +126,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var m0 = _vm.dateFormat(1530000000)
+  var m0 = _vm.getImgUrl(_vm.userInfo.user_img)
+  var m1 = _vm.dateFormat(_vm.userInfo.create_time)
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        m0: m0
+        m0: m0,
+        m1: m1
       }
     }
   )
@@ -224,10 +226,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
+      userInfo: {},
       firstSection: [
       {
         index: 0,
@@ -260,9 +282,15 @@ var _default =
 
 
   },
+  onLoad: function onLoad() {var _this = this;
+    this.getUserInfoWithKey('userInfo').then(function (info) {
+      console.log(info);
+      _this.userInfo = info;
+    });
+  },
   methods: {
-    changehead: function changehead() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _this.chooseImgAndUpload({
+    changehead: function changehead() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _this2.chooseImgAndUpload({
                     count: 1 }).
                   then(function (res) {
                     console.log(res);
@@ -290,6 +318,22 @@ var _default =
 
       }
     },
+    gotoBind: function gotoBind() {
+
+    },
+    unBind: function unBind() {
+      uni.showModal({
+        title: '提示',
+        content: '确定解除绑定?',
+        success: function success(res) {
+          if (res.confirm) {
+            console.log('点击确定');
+
+
+          }
+        } });
+
+    },
     clickOut: function clickOut() {
       uni.showModal({
         title: '提示',
@@ -302,6 +346,9 @@ var _default =
           }
         } });
 
+    },
+    getImgUrl: function getImgUrl(icon) {
+      return this.mainServer + icon;
     },
     dateFormat: function dateFormat(time) {
       return this.getDateSecond(time);

@@ -2,11 +2,11 @@
 	<view class="page" >
 		
 		<!-- 轮播 -->
-		<swiper class="bannerHolder" :indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000">
-			<swiper-item v-for="(ban,index) in bannerData" :key="index">
-				<navigator url="../Detail/newsDetail">
-					<image class="bannerImage" :src="getImgUrl(ban.focus_img)" mode="aspectFill"></image>
-				</navigator>
+		<swiper v-if="theNewsDetail.more_image" class="bannerHolder" :indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000">
+			<swiper-item v-for="(ban,index) in theNewsDetail.more_image.split(',')" :key="index">
+				<!-- <navigator url="../Detail/newsDetail"> -->
+					<image class="bannerImage" :src="getImgUrl(ban)" mode="aspectFill"></image>
+				<!-- </navigator> -->
 			</swiper-item>
 		</swiper>
 		
@@ -15,17 +15,17 @@
 		<view style="background-color: #FFFFFF;padding-top: 20rpx;">
 			<view class="uni-row">
 				<view class="price">
-					￥256
+					￥{{theNewsDetail.price}}
 				</view>
 				<button class="saveBtn" type="default">
-					复购立省20.00
+					复购立省{{theNewsDetail.price}}*{{theNewsDetail.discount}}
 				</button>
 			</view>
 			<view class="goodsname">
-				晟农博316冲施肥
+				{{theNewsDetail.name}}
 			</view>
 			<view class="goodsdetail">
-				硬核产品 青枯 病毒 黄叶 起死回生"
+				{{theNewsDetail.remarks}}
 			</view>
 		</view>
 		
@@ -41,21 +41,17 @@
 						
 						<view v-if="fun.index==0" class="uni-row">
 							
-							<view class="other_gray">
-								购买可得
-							</view>
+							<view class="other_gray">购买可得</view>
 							<view class="other_pink">
-								10
+								{{theNewsDetail.bonus_points}}
 							</view>
-							<view class="other_gray">
-								积分，积分可抵现
-							</view>
+							<view class="other_gray">积分，积分可抵现</view>
 							</view>
 						<view v-if="fun.index==1" class="other_gray" style="width: 80%;">
-							316颗粒底肥改善土壤 提高肥效吸收316颗粒底肥改善土壤 提高肥效吸收316颗粒底肥改善土壤 提高肥效吸收316颗粒底肥改善土壤 提高肥效吸收。
+							{{theNewsDetail.welfare}}
 						</view>
 						<view v-if="fun.index==2" class="other_gray">
-							请选择规格数量
+							{{selTheSku?selTheSku.name:'请选择规格数量'}}
 						</view>
 					</view>
 				</view>
@@ -71,7 +67,7 @@
 				<view  class="uni-list-cell-navigate uni-navigate-right" style="" @click="seeComment()">
 					<view style="display: flex;flex-direction: row;width: 100%;">
 						<view class="other_gray" style="margin-left: 20rpx;width: 50%;font-size: 28rpx;">
-						商品评价（75658）
+						商品评价（{{theNewsDetail.reserve_num}}）
 						</view>
 						
 						<view class="other_gray_light" style="width: 50%;text-align: right;padding-right: 30rpx;">
@@ -93,9 +89,18 @@
 		
 		
 		<view   class="bottom_tool">
-			<view class="cartBtn" style="width: 25%;">
-				购物车
+			<view class="" style="width: 20%;">
+				<view class="redNum">
+					{{gouwucheNum}}
+				</view>
+				<view class="iconfont icon-gouwuche" style="font-size: 40rpx;width: 100%;text-align: center;">
+					
+				</view>
+				<view class="cartBtn">
+					购物车
+				</view>
 			</view>
+			
 			<view class="bigBtn" style="color: rgb(51,51,51);" @click="addToCart()">
 				加入购物车
 			</view>
@@ -109,12 +114,13 @@
 		
 		<!-- 加购弹出的透明view -->
 		<view  v-if="isShowAlphaView" class="wrapper"
-		@touchmove.stop.prevent="moveHandle" @click="cancelAlpha()">
+		@touchmove.stop.prevent="moveHandle">
 			<view class="alphaWhiteV">
 				<view class="uni-row" >
-					<image class="alp_img" src="" mode=""></image>
+					<image class="alp_img" :src="getImgUrl(theNewsDetail.thumb)"></image>
 					<view style="width: 100%;">
-						<view style="width: 100%;text-align: right;">
+						<view style="width: 100%;text-align: right;" 
+						@click="cancelAlpha()">
 							<view class="iconfont icon-guanbi">
 								
 							</view>
@@ -123,10 +129,10 @@
 							￥
 						</text>
 						<text class="alp_price" style="padding-left: 0rpx;">
-							256
+							{{theNewsDetail.price}}
 						</text>
 						<view class="alp_name">
-							晟农博316冲施肥
+							{{theNewsDetail.name}}
 						</view>
 						<view class="alp_skuname" style="">
 							请选择规格数量
@@ -140,23 +146,26 @@
 				</view>
 				
 				<view class="uni-row">
-					<button class="sku_btn" type="default">
-						大包
+					<button v-for="(item,index) in skuList" :key="index"
+					@click="clickSKU(item)"
+					:class="selTheSku===item?'sku_btn':'sku_btn_unsel'">
+						{{item.name}}
 					</button>
-					<button class="sku_btn_unsel" type="default">
-						小包
-					</button>
+					
 				</view>
 				
 				<view class="uni-row" style="padding-top: 30rpx;">
-					<view class="apl_sku_type" style="margin-top: 0rpx;width: calc(100% - 200rpx);">
+					<view class="apl_sku_type" style="width: calc(100% - 240rpx);">
 						数量
 					</view>
+					
+					
+					
 					<wm-numberBox  model='1' min='1' value='1'
-					@change="numberChange(2,1)" >
-						
-						
+					@change="change($event,1)" >
 					</wm-numberBox>
+					
+					
 				</view>
 				
 			</view>
@@ -171,20 +180,20 @@
 <script>
 
 	import wmNumberBox from "@/common/wm-number-box.vue"
+	import uniBadge from "@/components/uni-badge/uni-badge.vue"
 	export default {
-		components: {wmNumberBox},
+		components: {wmNumberBox,uniBadge},
 		data() {
 			return {
+				theUserId:'',
 				theNewsid: '',
-				theMid: '',
 				theNewsDetail: {},
-				theComment: '',
-				bannerData:[{
-					focus_img:'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1593565729&di=bf0297a1bb18781b89c9725ff687cd53&src=http://img007.hc360.cn/m1/M07/9D/91/wKhQcFRRt5yEXtZLAAAAAMD3N9g207.jpg'
-				},
-				{
-					focus_img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593575815914&di=243ef1045c91ecb424f64816720fdb6b&imgtype=0&src=http%3A%2F%2Fsup.user.img38.51sole.com%2Fimages3%2F20150409%2F1556126_2015491112220.jpg'
-				}],
+				bannerData:[],
+				skuList:[],
+				selTheSku:{},
+				selNum:1,
+				gouwucheNum:1,
+				isShowAlphaView:false,
 				firstSection:[
 					{
 						index:0,
@@ -199,51 +208,74 @@
 						title:'已选'
 					}
 				],
-				isShowAlphaView:false,
-				
 			}
 		},
 
 
 		onLoad(event) {
 			this.theNewsid = event.query;
-			if(event.mine==1){
-				console.log('mineminemine');
-				this.isMine=true;
-			}
-			var _this = this;
-			uni.getStorage({
-				key: 'mid',
-				success: function(res) {
-					console.log('getStoragegemid' + res.data);
-					_this.theMid = res.data;
-
-				}
-			});
+			console.log(this.theNewsid);
+			
 			this.getNewsDetail();
+			
+			this.getUserInfoWithKey('userInfo').then((res)=>{
+				console.log(res);
+				this.theUserId=res.id;
+			})
 
 		},
 
 		methods: {
 			async getNewsDetail() {
 				 var result = await this.requestFromServer({
-					 url:  'Home/Notice/detail',
+					 url:  '/index/index/productShow',
 					 data: {
-					 	id: this.theNewsid,
-					 	mid: this.theMid
+					 	productId: this.theNewsid,
 					 },
 				 })
 				 console.log(result);
 				 this.theNewsDetail = result.data;
-				 if(this.theNewsDetail.is_feedback==1){
-					 this.is_feedback=true;//需要反馈
-				 }
-				 if(this.theNewsDetail.feedback==1){
-				 	    this.feedback=true;//已经反馈了
-				 }
+				
 			},
 			addToCart(){
+				if(this.isShowAlphaView==true){
+					this.requestFromServer({
+						url:'index/index/addShoppingCart',
+						data:{
+							userId:this.theUserId,
+							productId:this.theNewsid,
+							specificationsId:this.selTheSku.id,
+							specificationsCn:this.selTheSku.name
+						}
+					}).then((res)=>{
+						if(res){
+							this.isShowAlphaView=false;
+							
+							//购物车角标不管用
+							uni.setTabBarBadge({
+							  index: 1,
+							  text: res.total_number.toString()
+							})
+						}
+					})
+				}else{
+					this.requestFromServer({
+						url:'/index/index/getSpecificationsList',
+						data:{
+							specificationsId:this.theNewsDetail.specifications_id
+						}
+					}).then((res)=>{
+						this.skuList=res.data;
+						if(this.skuList.length>0){
+							this.selTheSku=this.skuList[0];
+						}
+						this.isShowAlphaView=true;
+					})
+				}
 				
+			},
+			clickSKU(item){
+				this.selTheSku=item;
 			},
 			buyNow(){
 				this.isShowAlphaView=true;
@@ -251,73 +283,13 @@
 				// 	url:'../Cart/orderConfirm'
 				// })
 			},
-			seeComment(){
-				uni.navigateTo({
-					url:'./goodsComment'
-				})
-			},
+			
+			change(changeNumber,index) {    
+			    console.log(changeNumber);  
+				this.selNum=changeNumber.value;
+			  },  
 
-			sendComment() {
-				if (this.theMid) {
-					uni.request({
-						url: this.mainServer + 'Home/Exchange/addFayan',
-						method: "POST",
-						data: {
-							id: this.theNewsid,
-							mid: this.theMid,
-							content: this.theComment
-						},
-						success: (result) => {
-							console.log(result);
-						},
-						fail: (failresult) => {
-
-						}
-					})
-				} else {
-					uni.navigateTo({
-						url: '../Login/login'
-					})
-				}
-
-			},
-			deleIt(){
-				var _this=this;
-				uni.showModal({
-					title: '删除通知',
-					content: '是否删除此条通知?',
-					success: function(res) {
-						if (res.confirm) {
-							console.log('点击确定');
-							uni.request({
-								url:_this.mainServer+'Home/Notice/delete',
-								data:{
-									id:_this.theNewsid,
-									mid:_this.theMid, 
-								},
-								method:"POST",
-								success: (res) => {
-									uni.showToast({
-										icon:'none',
-										title:res.data.message
-									})
-									if(res.data.code==1){
-										uni.$emit('fire',{
-											isNeedRefresh:1
-										});
-										uni.navigateBack({
-											
-										})
-									}
-									
-								},
-								
-							})
-				
-						}
-					}
-				})
-			},
+			
 			
 			getImgUrl(icon) {
 				return this.mainServer + icon;
@@ -447,7 +419,13 @@
 	}
 	
 	.cartBtn{
-		
+		color: rgb(102,102,102);
+		font-size: 22rpx;
+		text-align: center;
+		height: 30rpx;
+		line-height: 30rpx;
+
+		margin-top: -10rpx;
 	}
 	.bigBtn{
 		width: 40%;
@@ -456,6 +434,7 @@
 		font-size: 32rpx;
 		text-align: center;
 		border-left: 1rpx  solid #E5E5E5;
+
 	}
 	
 	.wrapper{
@@ -470,7 +449,10 @@
 	.alphaWhiteV{
 		background-color: #FFFFFF;
 		padding: 30rpx;
+		width: calc(100% - 60rpx);
 		margin-bottom: 0rpx;
+		position: fixed;
+		bottom:calc(var(--window-bottom) + 100rpx);
 	}
 	
 	.alp_img{
@@ -526,5 +508,16 @@
 		font-size: 28rpx;
 		color: rgb(51,51,51);
 		width: calc(50% - 10rpx);
+	}
+	.redNum{
+		width: 30rpx;
+		height: 30rpx;
+		line-height: 30rpx;
+		font-size: 18rpx;
+		color: #FFFFFF;
+		background-color: #FC0107;
+		border-radius: 15rpx;
+		text-align: center;
+		position: absolute;margin-left: 90rpx;z-index: 40;
 	}
 </style>

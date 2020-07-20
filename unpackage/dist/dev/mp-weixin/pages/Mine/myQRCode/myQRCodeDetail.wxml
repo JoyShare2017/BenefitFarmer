@@ -1,0 +1,1 @@
+<view class="page"><image class="bigImg" src="{{bigUrl}}" mode></image><view data-event-opts="{{[['tap',[['saveImgToLocal']]]]}}" class="bottom_btn" bindtap="__e">下载</view></view>

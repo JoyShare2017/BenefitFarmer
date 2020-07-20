@@ -43,6 +43,7 @@
 </template>
 
 <script>
+	import md5 from '../../common/md5.js';
 	export default {
 		data() {
 			return {
@@ -94,9 +95,9 @@
 				var theApi='Home/User/setPass';
 				var theData={
 						mid:this.theMid,
-						oldpass:this.oldPwd,
-						newpass:this.newPwdOne,
-						reppass:this.newPwdTwo,
+						oldpass:md5(this.oldPwd).substr(8,16),
+						newpass:md5(this.newPwdOne).substr(8,16),
+						reppass:md5(this.newPwdTwo).substr(8,16),
 	
 				};
 				var res = await this.requestFromServer({

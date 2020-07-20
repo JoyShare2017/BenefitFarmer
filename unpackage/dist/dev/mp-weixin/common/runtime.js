@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"common/wm-number-box":1,"components/uni-badge/uni-badge":1,"components/yixuan-selectAddress/yixuan-selectAddress":1};
+/******/ 		var cssChunks = {"common/wm-number-box":1,"components/uni-badge/uni-badge":1,"components/yixuan-selectAddress/yixuan-selectAddress":1,"components/xuan-timeLine/xuan-timeLine":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"common/wm-number-box":"common/wm-number-box","components/uni-badge/uni-badge":"components/uni-badge/uni-badge","components/yixuan-selectAddress/yixuan-selectAddress":"components/yixuan-selectAddress/yixuan-selectAddress"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"common/wm-number-box":"common/wm-number-box","components/uni-badge/uni-badge":"components/uni-badge/uni-badge","components/yixuan-selectAddress/yixuan-selectAddress":"components/yixuan-selectAddress/yixuan-selectAddress","components/xuan-timeLine/xuan-timeLine":"components/xuan-timeLine/xuan-timeLine"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

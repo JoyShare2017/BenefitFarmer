@@ -81,10 +81,15 @@
 .twoBtn_item{
 	width: 50%;
 	height: 100rpx;
+	/* text-align: center; */
+	/* align-items: center; */
+}
+.share{
+	height: 100rpx;
+	line-height: 100rpx;
+	/* width: 50%; */
 	text-align: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	        align-items: center;
+	margin-left: 20%;
 }
 
 

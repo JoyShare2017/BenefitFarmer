@@ -1528,12 +1528,12 @@ radio-group label, checkbox-group label{
 }
 @font-face {
   font-family: 'iconfont';  /* project id 1919198 */
-  src: url('http://at.alicdn.com/t/font_1919198_77qa0sfasq7.eot');
-  src: url('http://at.alicdn.com/t/font_1919198_77qa0sfasq7.eot?#iefix') format('embedded-opentype'),
-  url('http://at.alicdn.com/t/font_1919198_77qa0sfasq7.woff2') format('woff2'),
-  url('http://at.alicdn.com/t/font_1919198_77qa0sfasq7.woff') format('woff'),
-  url('http://at.alicdn.com/t/font_1919198_77qa0sfasq7.ttf') format('truetype'),
-  url('http://at.alicdn.com/t/font_1919198_77qa0sfasq7.svg#iconfont') format('svg');
+  src: url('http://at.alicdn.com/t/font_1919198_rckyi8cs2m.eot');
+  src: url('http://at.alicdn.com/t/font_1919198_rckyi8cs2m.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_1919198_rckyi8cs2m.woff2') format('woff2'),
+  url('http://at.alicdn.com/t/font_1919198_rckyi8cs2m.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_1919198_rckyi8cs2m.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_1919198_rckyi8cs2m.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -1541,6 +1541,69 @@ radio-group label, checkbox-group label{
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-lianxiren:before {
+  content: "\e69a";
+}
+.icon-kefucopy:before {
+  content: "\e606";
+}
+.icon-turangjiance:before {
+  content: "\e66d";
+}
+.icon-shucai:before {
+  content: "\e63d";
+}
+.icon-xuanzhongyuandian1:before {
+  content: "\e605";
+}
+.icon-xuanzhong:before {
+  content: "\e69d";
+}
+.icon-feiyong:before {
+  content: "\e603";
+}
+.icon-ziyuanCircle:before {
+  content: "\e621";
+}
+.icon-order:before {
+  content: "\e604";
+}
+.icon-erweima:before {
+  content: "\e671";
+}
+.icon-fenxiang1:before {
+  content: "\e67b";
+}
+.icon-weixin:before {
+  content: "\e675";
+}
+.icon-shoujihao:before {
+  content: "\e63a";
+}
+.icon-yanzhengma:before {
+  content: "\e623";
+}
+.icon-mima:before {
+  content: "\e89f";
+}
+.icon-tuikuan:before {
+  content: "\e68c";
+}
+.icon-1:before {
+  content: "\e60d";
+}
+.icon-jifen:before {
+  content: "\e667";
+}
+.icon-yiwancheng:before {
+  content: "\e62a";
+}
+.icon-shipinbofang:before {
+  content: "\e65b";
+}
+.icon-daifukuan:before {
+  content: "\e658";
 }
 .icon-touxiang:before {
   content: "\e620";
@@ -1600,5 +1663,10 @@ radio-group label, checkbox-group label{
 .systemGreen{
 	background-color: #1AAD19;
 }
-
+.paddingLeft30{
+	padding-left: 30rpx;
+}
+.paddingRight30{
+	padding-right: 30rpx;
+}
 

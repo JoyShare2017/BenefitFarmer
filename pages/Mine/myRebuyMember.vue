@@ -168,7 +168,7 @@ export default {
 
 
 .topView {
-	width: 100%;
+	/* width: 100%; */
 	height: 80rpx;
 	padding-left: 30rpx;
 	display: flex;

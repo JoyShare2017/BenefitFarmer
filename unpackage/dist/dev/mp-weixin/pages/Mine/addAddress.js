@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var selectAddress = function selectAddress() {Promise.all(/*! require.ensure | components/yixuan-selectAddress/yixuan-selectAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/yixuan-selectAddress/yixuan-selectAddress")]).then((function () {return resolve(__webpack_require__(/*! @/components/yixuan-selectAddress/yixuan-selectAddress.vue */ 386));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var selectAddress = function selectAddress() {Promise.all(/*! require.ensure | components/yixuan-selectAddress/yixuan-selectAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/yixuan-selectAddress/yixuan-selectAddress")]).then((function () {return resolve(__webpack_require__(/*! @/components/yixuan-selectAddress/yixuan-selectAddress.vue */ 442));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

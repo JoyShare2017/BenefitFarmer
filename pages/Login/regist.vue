@@ -45,6 +45,7 @@
 </template>
 
 <script>
+	import md5 from '../../common/md5.js';
 export default {
 	data() {
 		return {
@@ -56,18 +57,18 @@ export default {
 		};
 	},
 	onLoad() {
-		var _this = this;
-		uni.getStorage({
-			key: 'lastaccount',
-			success: function(res) {
-				console.log('getStoragelastaccount' + res.data);
-				_this.myPhone = res.data;
-			}
-		});
+		// var _this = this;
+		// uni.getStorage({
+		// 	key: 'lastaccount',
+		// 	success: function(res) {
+		// 		console.log('getStoragelastaccount' + res.data);
+		// 		_this.myPhone = res.data;
+		// 	}
+		// });
 	},
 
 	methods: {
-		sendYzm(){
+		async sendYzm(){
 			if(this.myPhone.length==0){
 				uni.showToast({
 					icon:'none',
@@ -75,33 +76,43 @@ export default {
 				});
 				return;
 			}
-			
-			uni.request({
-				url:this.mainServer+'Home/Index/sms_send',
+			var resLLL = this.requestFromServer({
+				url:'index/other/sendPhoneCode',
 				data:{
 					phone:this.myPhone,
-					type:3
-				},
-				method:"POST",
-				success: (res) => {
-					console.log(res);
-					uni.showToast({
-						icon:"none",
-						title:res.data.message
-					});
-					this.yzmBtnTitle=60;
-					 this.timestatus = false
-					       var interval = setInterval(() => {
-					          --this.yzmBtnTitle
-					       }, 1000)
-					       setTimeout(() => {
-					          clearInterval(interval)
-					          this.timestatus = true;
-							  this.yzmBtnTitle='重新获取';
-					       }, 60000)
-					
+					type:1
 				}
+			}).then((res)=>{
+				console.log(res);
 			})
+			
+			console.log(resLLL);
+			// uni.request({
+			// 	url:this.mainServer+'/index/other/sendPhoneCode',
+			// 	data:{
+			// 		phone:this.myPhone,
+			// 		type:3
+			// 	},
+			// 	method:"POST",
+			// 	success: (res) => {
+			// 		console.log(res);
+			// 		uni.showToast({
+			// 			icon:"none",
+			// 			title:res.data.message
+			// 		});
+			// 		this.yzmBtnTitle=60;
+			// 		 this.timestatus = false
+			// 		       var interval = setInterval(() => {
+			// 		          --this.yzmBtnTitle
+			// 		       }, 1000)
+			// 		       setTimeout(() => {
+			// 		          clearInterval(interval)
+			// 		          this.timestatus = true;
+			// 				  this.yzmBtnTitle='重新获取';
+			// 		       }, 60000)
+					
+			// 	}
+			// })
 			
 			
 			
@@ -135,7 +146,7 @@ export default {
 				url: this.mainServer + 'Home/User/login',
 				data: {
 					user_name: this.myPhone,
-					password: this.myPwd
+					password: md5(this.myNewPwd).substr(8,16)
 				},
 				method: 'POST',
 				success: res => {
@@ -163,45 +174,45 @@ export default {
 				}
 			});
 		},
-		sendYzm(){
-			if(this.myPhone.length==0){
-				uni.showToast({
-					icon:'none',
-					title:"请输入手机号"
-				});
-				return;
-			}
+		// sendYzm(){
+		// 	if(this.myPhone.length==0){
+		// 		uni.showToast({
+		// 			icon:'none',
+		// 			title:"请输入手机号"
+		// 		});
+		// 		return;
+		// 	}
 			
-			uni.request({
-				url:this.mainServer+'Home/Index/sms_send',
-				data:{
-					phone:this.myPhone,
-					type:3
-				},
-				method:"POST",
-				success: (res) => {
-					console.log(res);
-					uni.showToast({
-						icon:"none",
-						title:res.data.message
-					});
-					this.yzmBtnTitle=60;
-					 this.timestatus = false
-					       var interval = setInterval(() => {
-					          --this.yzmBtnTitle
-					       }, 1000)
-					       setTimeout(() => {
-					          clearInterval(interval)
-					          this.timestatus = true;
-							  this.yzmBtnTitle='重新获取';
-					       }, 60000)
+		// 	uni.request({
+		// 		url:this.mainServer+'Home/Index/sms_send',
+		// 		data:{
+		// 			phone:this.myPhone,
+		// 			type:3
+		// 		},
+		// 		method:"POST",
+		// 		success: (res) => {
+		// 			console.log(res);
+		// 			uni.showToast({
+		// 				icon:"none",
+		// 				title:res.data.message
+		// 			});
+		// 			this.yzmBtnTitle=60;
+		// 			 this.timestatus = false
+		// 			       var interval = setInterval(() => {
+		// 			          --this.yzmBtnTitle
+		// 			       }, 1000)
+		// 			       setTimeout(() => {
+		// 			          clearInterval(interval)
+		// 			          this.timestatus = true;
+		// 					  this.yzmBtnTitle='重新获取';
+		// 			       }, 60000)
 					
-				}
-			})
+		// 		}
+		// 	})
 			
 			
 			
-		},
+		// },
 		// getMyPersonalInfo(info_key) {
 		// 	console.log('进来了'+info_key);
 		// 	uni.getStorage({

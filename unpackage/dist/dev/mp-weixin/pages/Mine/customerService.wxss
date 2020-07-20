@@ -4,11 +4,10 @@
 	padding-top: 40rpx;
 }
 .ser_img{
-	width: 126rpx;
-	height: 126rpx;
 	border-radius: 63rpx;
-	margin-left: calc(50% - 63rpx);
-	background-color: #09BB07;
+	text-align: center;
+	font-size: 126rpx;
+	color: rgb(153,153,153);
 }
 .commonText{
 	font-size: 28rpx;

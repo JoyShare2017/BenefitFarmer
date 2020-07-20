@@ -1,9 +1,9 @@
 <template>
 	<view class="page">
 		<view class="whiteTop">
-			<image class="headImg" src="" mode="" @click="changehead()"></image>
+			<image class="headImg" :src="getImgUrl(userInfo.user_img)" mode="" @click="changehead()"></image>
 			<view class="userInfo">
-				雷佳音
+				{{userInfo.user_nickname}}
 			</view>
 		</view>
 		
@@ -21,11 +21,13 @@
 							<button class="duplicateBtn" type="default" @click="clickDup()">
 								复制
 							</button>
-							1213888
+							{{userInfo.user_name}}
 							
 							</view>
-						<view v-if="fun.index==1" style="text-align: right;width: 60%;color: rgb(153,153,153);">欧巴</view>
-						<view v-if="fun.index==2" style="text-align: right;width: 60%;color: rgb(153,153,153);">{{dateFormat(1530000000)}}</view>
+						<view v-if="fun.index==1" style="text-align: right;width: 60%;color: rgb(153,153,153);">
+						{{userInfo.user_nickname}}</view>
+						<view v-if="fun.index==2" style="text-align: right;width: 60%;color: rgb(153,153,153);">
+						{{dateFormat(userInfo.create_time)}}</view>
 					</view>
 				</view>
 				
@@ -37,10 +39,27 @@
 			style="display: flex;flex-direction: column;"
 			v-for="(fun,funcIndex) in secondSection" :key="funcIndex" @tap="jump(fun)">
 				
+				
+				
 				<view class="uni-list-cell-navigate uni-navigate-right" style="width: 100%;">
-					<view style="display: flex;flex-direction: row;width: 100%;">
+					
+					<view v-if="funcIndex==0" style="display: flex;flex-direction: row;width: 100%;">
+						<view v-if="userInfo.open_id.length>0" class="bind" style="margin-left: 20rpx;width: 40%;">
+						（已绑定）</view>
+						<view v-if="userInfo.open_id.length>0" style="text-align: right;width: 60%;color: rgb(153,153,153);padding-right: 30rpx;"
+						@click="unBind()">
+						解除绑定</view>
+						
+						
+						<!-- <view v-if="userInfo.open_id.length>0" class="nobind" style="margin-left: 20rpx;width: 40%;">
+						（未绑定）</view>
+						<view v-if="userInfo.open_id.length>0" style="text-align: right;width: 60%;color: #FC0107;padding-right: 30rpx;"
+						@click="gotoBind()">
+						立即绑定</view> -->
+					</view>
+					
+					<view v-if="funcIndex!=0" style="display: flex;flex-direction: row;width: 100%;">
 						<view style="margin-left: 20rpx;width: 40%;">{{fun.title}}</view>
-
 					</view>
 				</view>
 				
@@ -58,6 +77,7 @@
 	export default{
 		data(){
 			return{
+				userInfo:{},
 				firstSection:[
 					{
 						index:0,
@@ -90,6 +110,12 @@
 				],
 			}
 		},
+		onLoad(){
+			this.getUserInfoWithKey('userInfo').then((info)=>{
+				console.log(info);
+				this.userInfo=info;
+			})
+		},
 		methods:{
 			async changehead(){
 				var res =await this.chooseImgAndUpload({
@@ -120,6 +146,22 @@
 					})
 				}	
 			},
+			gotoBind(){
+				
+			},
+			unBind(){
+				uni.showModal({
+					title: '提示',
+					content: '确定解除绑定?',
+					success: function(res) {
+						if (res.confirm) {
+							console.log('点击确定');
+							
+									
+						}
+					}
+				})
+			},
 			clickOut(){
 				uni.showModal({
 					title: '提示',
@@ -132,6 +174,9 @@
 						}
 					}
 				})
+			},
+			getImgUrl(icon) {
+				return this.mainServer + icon;
 			},
 			dateFormat:function(time) {
 				return this.getDateSecond(time);
@@ -152,7 +197,7 @@
 		margin-top: 40rpx;
 		width: 172rpx;
 		height: 172rpx;
-		border-radius: 81rpx;
+		border-radius: 86rpx;
 		background-color: #007AFF;
 		margin-left: calc(50% - 86rpx);
 	}
@@ -164,7 +209,7 @@
 		text-align: center;
 	}
 	.duplicateBtn{
-		margin-top: 10rpx;
+		margin-top: 8rpx;
 		height: 34rpx;
 		line-height: 34rpx;
 		width: 100rpx;
@@ -188,4 +233,23 @@
 		background-color: #FFFFFF;
 
 	}
+	
+	.bind{
+		font-size: 28rpx;
+		color: rgb(153,153,153);
+	}
+	.bind::before{
+		content: '微信绑定';
+		color: rgb(0,0,0);
+	}
+	
+	.nobind{
+		font-size: 28rpx;
+		color: #FC0107;
+	}
+	.nobind::before{
+		content: '微信绑定';
+		color: rgb(0,0,0);
+	}
+	
 </style>

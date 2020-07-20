@@ -11,9 +11,10 @@
 	line-height: 80rpx;
 }
 .topView {
-	width: 100%;
+	width: calc(100% - 60rpx);
 	height: 80rpx;
 	padding-left: 30rpx;
+	padding-right: 30rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -33,6 +34,18 @@
 	line-height: 80rpx;
 	color: rgb(0,139,60);
 	font-size: 26rpx;
+	width: 30%;
+	text-align: right;
+}
+.top_pink::before{
+	content: '共';
+	color: rgb(51,51,51);
+	font-size: 30rpx;
+}
+.top_pink::after{
+	content: '人';
+	color: rgb(51,51,51);
+	font-size: 30rpx;
 }
 .cell_holder {
 	

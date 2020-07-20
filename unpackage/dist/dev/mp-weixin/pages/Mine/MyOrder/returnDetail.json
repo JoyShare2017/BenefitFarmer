@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "退货详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "wm-number-box": "/common/wm-number-box"
+  }
 }

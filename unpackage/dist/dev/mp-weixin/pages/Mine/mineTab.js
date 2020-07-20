@@ -97,6 +97,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var m0 = _vm.getImgUrl(_vm.userInfo.user_img)
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        m0: m0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -205,10 +214,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
+      userInfo: {},
       firstSection: [
       {
         index: 0,
@@ -281,9 +324,15 @@ var _default =
 
 
   },
+  onLoad: function onLoad() {var _this = this;
+    this.getUserInfoWithKey('userInfo').then(function (info) {
+      console.log(info);
+      _this.userInfo = info;
+    });
+  },
   methods: {
-    choose: function choose() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var pics;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  _this.chooseImgAndUpload({
+    choose: function choose() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var pics;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  _this2.chooseImgAndUpload({
                     count: 3 }));case 2:pics = _context.sent;
 
 
@@ -366,6 +415,17 @@ var _default =
       // uni.navigateTo({
       // 	url:'./addAddress'
       // })
+    },
+    myQR: function myQR() {
+      uni.navigateTo({
+        url: './myQRCode/myQRCode' });
+
+    },
+    clickShare: function clickShare() {
+
+    },
+    getImgUrl: function getImgUrl(icon) {
+      return this.mainServer + icon;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

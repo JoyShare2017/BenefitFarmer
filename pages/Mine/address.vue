@@ -5,7 +5,7 @@
 			<view class="uni-list-cell-navigate uni-navigate-right" 
 				hover-class="uni-list-cell-hover"  @click="addadd()">
 				<view style="display: flex;flex-direction: row;width: 100%;">
-					<view class="iconfont icon-xinzeng"></view>
+					<view class="iconfont icon-xinzeng" style="font-size: 38rpx;color: rgb(206,206,206);margin-top: -10rpx;"></view>
 					<view   style="margin-left: 20rpx;width: 40%;"> 新增地址</view>
 				</view>
 			</view>
@@ -15,8 +15,8 @@
 		
 		<!-- 收货地址列表 -->
 		<view class="uni-list" style="margin-top: 20rpx;">
-			<view class="uni-list-cell">
-				<view class="cellHolder">
+			<view class="uni-list-cell" style="flex-direction: column;" v-for="(item,index) in 'kiss' " :key='index'>
+				<view class="cellHolder" >
 					<view class="namePhone" style="height: 100rpx;line-height: 100rpx;">
 						张三   15622222222
 					</view>
@@ -24,11 +24,24 @@
 						河北省石家庄事河北省石家庄事河北省石家庄事河北省石家庄事
 					</view>
 					
-					<view class="uni-row" style="margin-bottom: 20rpx;">
-						<view style="width: 60%;">
-							<label style="60%">
-								<checkbox :value="1" /><text>蛇尾默认是</text>
-							</label>
+					<view class="uni-row" style="margin:20rpx">
+						<view v-if="index==0"  class="cartBtn uni-row" style="width: 60%;">
+							<view v-if="index==0" class="iconfont icon-xuanzhong" 
+							style="color: rgb(0,139,60);font-size: 34rpx;">
+								
+							</view>
+							<view class="allSel">
+								{{index==0?'默认地址':'设为默认'}}
+							</view>
+						</view>
+						<view v-if="index!=0" @click="setDefault(item)" class="cartBtn uni-row" style="width: 60%;">
+							<view  class="iconfont icon-xuanzhongyuandian1" 
+							style="font-size: 34rpx;color: rgb(153,153,153);">
+								
+							</view>
+							<view class="allSel">
+								设为默认
+							</view>
 						</view>
 						
 						<view class="uni-row" style="width: 40%;">
@@ -109,6 +122,9 @@
 				}
 				
 			},
+			setDefault(item){
+				
+			},
 			del(){
 				uni.showModal({
 					title: '提示',
@@ -161,6 +177,14 @@
 		line-height: 50rpx;
 		font-size: 28rpx;
 		color: rgb(153,153,153);
+	}
+	.allSel{
+		height: 50rpx;
+		line-height: 50rpx;
+		font-size: 28rpx;
+		padding-left: 10rpx;
+		margin-top: 0rpx;
+		color: rgb(51,51,51);
 	}
 	.editbtn{
 		height: 46rpx;

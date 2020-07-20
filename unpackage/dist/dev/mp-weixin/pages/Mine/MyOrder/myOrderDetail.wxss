@@ -1,0 +1,83 @@
+
+.topBlack{
+	width: 100%;
+	background-color: rgb(36,36,36);
+	height: 140rpx;
+	padding: 20rpx;
+}
+.gain{
+	font-size: 30rpx;color:rgb(255,78,0);padding-left: 30rpx;
+}
+.gain::before{
+	content: '奖励';
+	color:rgb(51,51,51)
+}
+.gain::after{
+	content: '积分';
+	color:rgb(51,51,51)
+}
+.dupAddress{
+	height: 36rpx;
+	line-height: 36rpx;
+	font-size: 22rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	width: 80rpx;
+	color: rgb(102,102,102);
+	border-radius: 4rpx;
+	margin-top: 10rpx;
+}
+.dupAddress::after{
+	border-color: rgb(102,102,102);
+}
+.address{
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 26rpx;
+	padding-left: 30rpx;
+	color: rgb(102,102,102);
+}
+.goodsImg{
+	margin-left: 30rpx;
+	width: 160rpx;
+	height: 160rpx;
+	background-color: #09BB07;
+	margin-bottom: 30rpx;
+}
+.bottom_tool{
+	width: 100%;
+	height: 100rpx;
+	background-color: rgb(255,255,255);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex; 
+	-webkit-box-orient: horizontal; 
+	-webkit-box-direction: normal; 
+	-webkit-flex-direction: row; 
+	        flex-direction: row;
+	/* position: fixed; */
+	border-top: 1rpx  solid #616262;
+	/* bottom:calc(var(--window-bottom)); */
+}
+.bigBtn{
+	width: 200rpx;
+	margin-top: 13rpx;
+	height: 74rpx;
+	line-height: 74rpx;
+	font-size: 32rpx;
+	text-align: center;
+	background-color: rgb(0,139,60);
+	color: #FFFFFF;
+	border-radius: 10rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+}
+.grayBtn{
+	background-color: transparent;
+	color: rgb(102,102,102)
+}
+.bigBtn::after{
+	border-color: rgb(102,102,102);
+	border-width: 1rpx;
+}
+

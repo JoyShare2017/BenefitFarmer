@@ -97,19 +97,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l0 = _vm.__map(_vm.bannerData, function(ban, index) {
-    var m0 = _vm.getImgUrl(ban.focus_img)
+  var l0 = _vm.__map(_vm.theNewsDetail.more_image.split(","), function(
+    ban,
+    index
+  ) {
+    var m0 = _vm.getImgUrl(ban)
     return {
       $orig: _vm.__get_orig(ban),
       m0: m0
     }
   })
 
+  var m1 = _vm.getImgUrl(_vm.theNewsDetail.thumb)
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        l0: l0
+        l0: l0,
+        m1: m1
       }
     }
   )
@@ -146,7 +151,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var wmNumberBox = function wmNumberBox() {__webpack_require__.e(/*! require.ensure | common/wm-number-box */ "common/wm-number-box").then((function () {return resolve(__webpack_require__(/*! @/common/wm-number-box.vue */ 372));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var wmNumberBox = function wmNumberBox() {__webpack_require__.e(/*! require.ensure | common/wm-number-box */ "common/wm-number-box").then((function () {return resolve(__webpack_require__(/*! @/common/wm-number-box.vue */ 428));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniBadge = function uniBadge() {__webpack_require__.e(/*! require.ensure | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then((function () {return resolve(__webpack_require__(/*! @/components/uni-badge/uni-badge.vue */ 435));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -320,19 +335,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
-  components: { wmNumberBox: wmNumberBox },
+  components: { wmNumberBox: wmNumberBox, uniBadge: uniBadge },
   data: function data() {
     return {
+      theUserId: '',
       theNewsid: '',
-      theMid: '',
       theNewsDetail: {},
-      theComment: '',
-      bannerData: [{
-        focus_img: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1593565729&di=bf0297a1bb18781b89c9725ff687cd53&src=http://img007.hc360.cn/m1/M07/9D/91/wKhQcFRRt5yEXtZLAAAAAMD3N9g207.jpg' },
-
-      {
-        focus_img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593575815914&di=243ef1045c91ecb424f64816720fdb6b&imgtype=0&src=http%3A%2F%2Fsup.user.img38.51sole.com%2Fimages3%2F20150409%2F1556126_2015491112220.jpg' }],
-
+      bannerData: [],
+      skuList: [],
+      selTheSku: {},
+      selNum: 1,
+      gouwucheNum: 1,
+      isShowAlphaView: false,
       firstSection: [
       {
         index: 0,
@@ -344,54 +358,77 @@ __webpack_require__.r(__webpack_exports__);
 
       {
         index: 2,
-        title: '已选' }],
+        title: '已选' }] };
 
-
-      isShowAlphaView: false };
 
 
   },
 
 
-  onLoad: function onLoad(event) {
+  onLoad: function onLoad(event) {var _this = this;
     this.theNewsid = event.query;
-    if (event.mine == 1) {
-      console.log('mineminemine');
-      this.isMine = true;
-    }
-    var _this = this;
-    uni.getStorage({
-      key: 'mid',
-      success: function success(res) {
-        console.log('getStoragegemid' + res.data);
-        _this.theMid = res.data;
-
-      } });
+    console.log(this.theNewsid);
 
     this.getNewsDetail();
+
+    this.getUserInfoWithKey('userInfo').then(function (res) {
+      console.log(res);
+      _this.theUserId = res.id;
+    });
 
   },
 
   methods: {
     getNewsDetail: function getNewsDetail() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   _this2.requestFromServer({
-                    url: 'Home/Notice/detail',
+                    url: '/index/index/productShow',
                     data: {
-                      id: _this2.theNewsid,
-                      mid: _this2.theMid } }));case 2:result = _context.sent;
+                      productId: _this2.theNewsid } }));case 2:result = _context.sent;
 
 
                 console.log(result);
-                _this2.theNewsDetail = result.data;
-                if (_this2.theNewsDetail.is_feedback == 1) {
-                  _this2.is_feedback = true; //需要反馈
-                }
-                if (_this2.theNewsDetail.feedback == 1) {
-                  _this2.feedback = true; //已经反馈了
-                }case 7:case "end":return _context.stop();}}}, _callee);}))();
-    },
-    addToCart: function addToCart() {
+                _this2.theNewsDetail = result.data;case 5:case "end":return _context.stop();}}}, _callee);}))();
 
+    },
+    addToCart: function addToCart() {var _this3 = this;
+      if (this.isShowAlphaView == true) {
+        this.requestFromServer({
+          url: 'index/index/addShoppingCart',
+          data: {
+            userId: this.theUserId,
+            productId: this.theNewsid,
+            specificationsId: this.selTheSku.id,
+            specificationsCn: this.selTheSku.name } }).
+
+        then(function (res) {
+          if (res) {
+            _this3.isShowAlphaView = false;
+
+            //购物车角标不管用
+            uni.setTabBarBadge({
+              index: 1,
+              text: res.total_number.toString() });
+
+          }
+        });
+      } else {
+        this.requestFromServer({
+          url: '/index/index/getSpecificationsList',
+          data: {
+            specificationsId: this.theNewsDetail.specifications_id } }).
+
+        then(function (res) {
+          _this3.skuList = res.data;
+          if (_this3.skuList.length > 0) {
+            _this3.selTheSku = _this3.skuList[0];
+          }
+          _this3.isShowAlphaView = true;
+        });
+      }
+
+    },
+    clickSKU: function clickSKU(item) {
+      this.selTheSku = item;
     },
     buyNow: function buyNow() {
       this.isShowAlphaView = true;
@@ -399,73 +436,13 @@ __webpack_require__.r(__webpack_exports__);
       // 	url:'../Cart/orderConfirm'
       // })
     },
-    seeComment: function seeComment() {
-      uni.navigateTo({
-        url: './goodsComment' });
 
+    change: function change(changeNumber, index) {
+      console.log(changeNumber);
+      this.selNum = changeNumber.value;
     },
 
-    sendComment: function sendComment() {
-      if (this.theMid) {
-        uni.request({
-          url: this.mainServer + 'Home/Exchange/addFayan',
-          method: "POST",
-          data: {
-            id: this.theNewsid,
-            mid: this.theMid,
-            content: this.theComment },
 
-          success: function success(result) {
-            console.log(result);
-          },
-          fail: function fail(failresult) {
-
-          } });
-
-      } else {
-        uni.navigateTo({
-          url: '../Login/login' });
-
-      }
-
-    },
-    deleIt: function deleIt() {
-      var _this = this;
-      uni.showModal({
-        title: '删除通知',
-        content: '是否删除此条通知?',
-        success: function success(res) {
-          if (res.confirm) {
-            console.log('点击确定');
-            uni.request({
-              url: _this.mainServer + 'Home/Notice/delete',
-              data: {
-                id: _this.theNewsid,
-                mid: _this.theMid },
-
-              method: "POST",
-              success: function success(res) {
-                uni.showToast({
-                  icon: 'none',
-                  title: res.data.message });
-
-                if (res.data.code == 1) {
-                  uni.$emit('fire', {
-                    isNeedRefresh: 1 });
-
-                  uni.navigateBack({});
-
-
-                }
-
-              } });
-
-
-
-          }
-        } });
-
-    },
 
     getImgUrl: function getImgUrl(icon) {
       return this.mainServer + icon;

@@ -1,0 +1,96 @@
+
+page {
+	background-color: #ffffff;
+}
+.bigLogo {
+	margin-top: 68rpx;
+	width: 122rpx;
+	height: 166rpx;
+	margin-left: calc(50% - 61rpx);
+	background-color: #007aff;
+}
+.gain{
+	font-size: 30rpx;color:rgb(255,78,0);padding-left: 0rpx;
+}
+.gain::before{
+	content: '奖励';
+	color:rgb(51,51,51)
+}
+.gain::after{
+	content: '积分';
+	color:rgb(51,51,51)
+}
+.loginBtn {
+	margin-top: 100rpx;
+	background-color: rgb(0, 139, 60);
+	color: #ffffff;
+	margin-left: 10rpx;
+	margin-right: 10rpx;
+	height: 74rpx;
+	line-height: 74rpx;
+	font-size: 30rpx;
+	width: 33.33%;
+}
+.loginBtn::after{
+	border-color: rgb(102,102,102);
+}
+.gray{
+	background-color: #ffffff;
+	color: rgb(102,102,102);
+}
+.no_account {
+	font-size: 28rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: rgb(153, 153, 153);
+	text-align: center;
+	/* background-color: #007AFF; */
+	/* width: 100%; */
+}
+.other{
+	font-size: 26rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: rgb(102,102,102);
+	text-align: center;
+	margin-top: -50rpx;
+	z-index: 50;
+	background-color: #FFFFFF;
+	width: 200rpx;
+	margin-left: calc(50% - 130rpx);
+}
+.adView{
+		margin-top: 10rpx;
+		padding: 10rpx;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		        flex-direction: row;
+		-webkit-flex-wrap: wrap;
+		        flex-wrap: wrap;
+		/* width: 100%; */
+
+		margin-bottom: 10rpx;
+}
+.ad_img{
+		margin-top: 30rpx;
+		/* margin-left: 0rpx; */
+		width: calc(100% - 60rpx) ;
+		height: 150rpx;
+		background-color: #09BB07;
+}
+.ad_item{
+		margin-left: 10rpx;
+		margin-right: 10rpx;
+		width: calc((100% - 60rpx)/3);
+		height: 190rpx;
+		text-align: center;
+		background-color: rgb(243,243,243);
+		margin-top: 10rpx;
+		margin-bottom: 10rpx;
+		/* align-items: center; */
+}
+

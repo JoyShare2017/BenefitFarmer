@@ -25,7 +25,6 @@
     "pages/Mine/myMember",
     "pages/Mine/myRebuyMember",
     "pages/Mine/MyOrder/myOrderList",
-    "pages/Mine/MyOrder/applyReturn",
     "pages/Mine/MyOrder/logisticsDetail",
     "pages/Mine/MyOrder/myOrderDetail",
     "pages/Mine/MyOrder/paySuccess",
@@ -51,7 +50,9 @@
     "pages/Mine/receiptManage/receiptProgresss",
     "pages/Mine/receiptManage/receiptSendEmail",
     "pages/Mine/caseShare/caseShareHome",
-    "pages/Mine/caseShare/cashShareSend"
+    "pages/Mine/caseShare/cashShareSend",
+    "pages/Mine/myQRCode/myQRCode",
+    "pages/Mine/myQRCode/myQRCodeDetail"
   ],
   "subPackages": [],
   "window": {

@@ -130,7 +130,7 @@
 			clickMe(index){
 				if(index<=2){
 					uni.navigateTo({
-						url:'./messageList'
+						url:'./messageList?query='+index
 					})	
 				}else if(index==3){
 					uni.navigateTo({

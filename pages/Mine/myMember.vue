@@ -15,9 +15,7 @@
 			<!-- 会员人数总概 -->
 			<view class="topView">
 				<view class="top_black" style="width: 70%;">张思德</view>
-				<view class="top_black">共</view>
 				<view class="top_pink">3</view>
-				<view class="top_black">人</view>
 			</view>
 			<!-- 会员列表 -->
 			<view class="uni-list" style="width: 100%;">
@@ -193,9 +191,10 @@ export default {
 
 
 .topView {
-	width: 100%;
+	width: calc(100% - 60rpx);
 	height: 80rpx;
 	padding-left: 30rpx;
+	padding-right: 30rpx;
 	display: flex;
 	flex-direction: row;
 }
@@ -210,8 +209,19 @@ export default {
 	line-height: 80rpx;
 	color: rgb(0,139,60);
 	font-size: 26rpx;
+	width: 30%;
+	text-align: right;
 }
-
+.top_pink::before{
+	content: '共';
+	color: rgb(51,51,51);
+	font-size: 30rpx;
+}
+.top_pink::after{
+	content: '人';
+	color: rgb(51,51,51);
+	font-size: 30rpx;
+}
 .cell_holder {
 	
 	width: 100%;
